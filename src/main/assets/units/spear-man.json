@@ -1,0 +1,7 @@
+{
+  "name": "Spearman",
+  "health": 100,
+  "attack": 10,
+  "defense": 10,
+  "unitChar": "S"
+}
