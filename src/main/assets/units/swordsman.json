@@ -1,0 +1,7 @@
+{
+  "name": "Swordsman",
+  "health": 100,
+  "attack": 15,
+  "defense": 15,
+  "unitChar": "C"
+}

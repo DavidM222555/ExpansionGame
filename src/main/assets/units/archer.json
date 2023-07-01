@@ -1,0 +1,7 @@
+{
+  "name": "Archer",
+  "health": 120,
+  "attack": 15,
+  "defense": 15,
+  "unitChar": "C"
+}

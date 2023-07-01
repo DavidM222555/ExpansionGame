@@ -4,48 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/units/club-man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/units/spear-man.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/GAME_CONSTANTS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/common/Movable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/common/Updatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/gui/StartMenuView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/gui/ViewManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/player/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/Gold.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/Iron.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/Resource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceCost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/Wood.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/teams/Team.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/World.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlockFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/block/SelectGameBlockCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/block/TileStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/world/noise/CellularAutomaton.java" afterDir="false" />
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Initial commit (;">
+      <change afterPath="$PROJECT_DIR$/src/main/assets/units/archer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/assets/units/heavy-calvary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/assets/units/light-calvary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/assets/units/swordsman.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +35,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d9ca797e-3b13-4105-8616-fb12cf152ea4" />
+        <option name="url" value="https://github.com/DavidM222555/ExpansionGame.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="97k245vg" />
@@ -116,6 +92,14 @@
       <option name="presentableId" value="Default" />
       <updated>1687566399467</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial commit (;">
+      <created>1688239405023</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688239405023</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,5 +112,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit (;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit (;" />
   </component>
 </project>

@@ -9,6 +9,7 @@ import org.hexworks.zircon.api.component.VBox;
 import org.hexworks.zircon.api.graphics.BoxType;
 
 import static org.hexworks.zircon.api.ComponentDecorations.box;
+import static org.hexworks.zircon.api.ComponentDecorations.margin;
 
 
 public class ResourceManager {
@@ -80,7 +81,8 @@ public class ResourceManager {
     public Component toComponent(int width) {
 
         VBox resourcesComponent = Components.vbox().withPreferredSize(width,
-                5).withDecorations(box(BoxType.SINGLE, "Resources")).build();
+                6).withDecorations(box(BoxType.SINGLE, "Resources"), margin(0
+                , 0, 1, 0)).build();
 
         Label goldLabel =
                 Components.label().withPreferredSize(resourcesComponent.getContentSize().getWidth(), 1).build();

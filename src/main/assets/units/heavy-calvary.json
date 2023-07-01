@@ -1,0 +1,7 @@
+{
+  "name": "Heavy Calvary",
+  "health": 100,
+  "attack": 15,
+  "defense": 15,
+  "unitChar": "C"
+}
