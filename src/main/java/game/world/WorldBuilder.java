@@ -38,9 +38,11 @@ public class WorldBuilder {
             var currentPos = posIterator.next();
 
             if (noiseGrid.get(currentPos.getY()).get(currentPos.getX())) {
-                blocks.put(currentPos, GameBlockFactory.water());
+                blocks.put(currentPos,
+                        GameBlockFactory.water(currentPos.to2DPosition()));
             } else {
-                blocks.put(currentPos, GameBlockFactory.ground());
+                blocks.put(currentPos,
+                        GameBlockFactory.ground(currentPos.to2DPosition()));
             }
         }
 

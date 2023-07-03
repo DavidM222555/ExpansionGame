@@ -1,7 +1,10 @@
 {
+  "key": "E",
   "name": "Clubman",
-  "health": 100,
+  "maxHealth": 120,
   "attack": 15,
   "defense": 15,
-  "unitChar": "C"
+  "woodCost": 10,
+  "ironCost": 10,
+  "goldCost": 0
 }

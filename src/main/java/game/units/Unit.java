@@ -3,31 +3,50 @@ package game.units;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import game.common.Movable;
 import game.common.Updatable;
+import game.world.block.GameBlock;
 import org.hexworks.zircon.api.data.Position;
 
+@SuppressWarnings("unused")
 public class Unit implements Updatable, Movable {
-    String name;
-    int health;
-    int attack;
-    int defense;
-    char unitChar;
-
+    @JsonIgnore
+    int currentHealth;
     @JsonIgnore
     Position pos;
 
+    @JsonIgnore
+    GameBlock blockUnitIsOn;
 
-    Unit(String name, char unitChar, int health, int attack, int defense,
-         Position pos) {
+    private char key;
+    private String name;
+    private int maxHealth;
+    private int attack;
+    private int defense;
+
+    // Look into having this be a resource amount that is transformed from
+    // these values that are gathered through Jackson
+    private int goldCost;
+    private int ironCost;
+    private int woodCost;
+
+
+    Unit(String name, int maxHealth, int attack, int defense) {
         this.name = name;
-        this.health = health;
+        this.maxHealth = maxHealth;
         this.attack = attack;
         this.defense = defense;
-        this.unitChar = unitChar;
-        this.pos = pos;
+        this.currentHealth = maxHealth;
     }
 
+    // Default constructor that is needed by Jackson JSON parser
     Unit() {
+    }
 
+    public char getKey() {
+        return this.key;
+    }
+
+    public void setKey(char key) {
+        this.key = key;
     }
 
     public String getName() {
@@ -38,12 +57,12 @@ public class Unit implements Updatable, Movable {
         this.name = name;
     }
 
-    public int getHealth() {
-        return health;
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setMaxHealth(int health) {
+        this.maxHealth = health;
     }
 
     public int getAttack() {
@@ -62,15 +81,6 @@ public class Unit implements Updatable, Movable {
         this.defense = defense;
     }
 
-    public char getUnitChar() {
-        return unitChar;
-    }
-
-    public void setUnitChar(char unitChar) {
-        this.unitChar = unitChar;
-    }
-
-
     public Position getPos() {
         return pos;
     }
@@ -79,6 +89,41 @@ public class Unit implements Updatable, Movable {
         this.pos = pos;
     }
 
+    public int getGoldCost() {
+        return goldCost;
+    }
+
+    public void setGoldCost(int goldCost) {
+        this.goldCost = goldCost;
+    }
+
+    public int getIronCost() {
+        return ironCost;
+    }
+
+    public void setIronCost(int ironCost) {
+        this.ironCost = ironCost;
+    }
+
+    public int getWoodCost() {
+        return this.woodCost;
+    }
+
+    public void setWoodCost(int woodCost) {
+        this.woodCost = woodCost;
+    }
+
+    public void changeHealth(int dx) {
+        this.currentHealth += dx;
+    }
+
+    public GameBlock getBlockUnitIsOn() {
+        return this.blockUnitIsOn;
+    }
+
+    public void setBlockUnitIsOn(GameBlock blockUnitIsOn) {
+        this.blockUnitIsOn = blockUnitIsOn;
+    }
 
     @Override
     public void update() {
@@ -91,11 +136,10 @@ public class Unit implements Updatable, Movable {
 
     @Override
     public void moveX(int x) {
-
     }
 
     @Override
     public void moveY(int y) {
-
     }
+
 }

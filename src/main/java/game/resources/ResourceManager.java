@@ -79,7 +79,6 @@ public class ResourceManager {
     }
 
     public Component toComponent(int width) {
-
         VBox resourcesComponent = Components.vbox().withPreferredSize(width,
                 6).withDecorations(box(BoxType.SINGLE, "Resources"), margin(0
                 , 0, 1, 0)).build();

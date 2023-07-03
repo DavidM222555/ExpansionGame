@@ -46,18 +46,18 @@ public class GameView extends BaseView {
         var sidePanelContentWidth = this.sidePanel.getContentSize().getWidth();
 
         var resourceComponent =
-                this.game.player.resourceManager.toComponent(sidePanelContentWidth);
+                this.game.getPlayer().resourceManager.toComponent(sidePanelContentWidth);
 
 
         this.sidePanel.addComponent(resourceComponent);
         this.setupUnitAndStructureGroup(this.sidePanel);
 
         var unitListComponent =
-                this.game.unitStore.toComponent(sidePanelContentWidth);
+                this.game.getUnitStore().toComponent(sidePanelContentWidth);
         this.sidePanel.addComponent(unitListComponent);
 
         ComponentRenderer<Panel> gameRenderer =
-                GameComponents.newGameAreaComponentRenderer(game.world,
+                GameComponents.newGameAreaComponentRenderer(game.getWorld(),
                         ProjectionMode.TOP_DOWN, TileStore.GROUND_TILE);
 
 
@@ -80,13 +80,13 @@ public class GameView extends BaseView {
     private void setupInputCallbacks() {
         this.getScreen().handleKeyboardEvents(KeyboardEventType.KEY_PRESSED,
                 (event, ctx) -> {
-            game.inputHandler.executeKeyboardEvent(event.getCode());
+            game.getInputHandler().executeKeyboardEvent(event.getCode());
             return UIEventResponse.processed();
         });
 
         this.getScreen().handleMouseEvents(MouseEventType.MOUSE_PRESSED,
                 (event, ctx) -> {
-            game.inputHandler.executeMouseEvent(event);
+            game.getInputHandler().executeMouseEvent(event);
             return UIEventResponse.processed();
         });
     }

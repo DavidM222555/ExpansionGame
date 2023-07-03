@@ -1,7 +1,10 @@
 {
+  "key": "Y",
   "name": "Spearman",
-  "health": 100,
+  "maxHealth": 120,
   "attack": 10,
   "defense": 10,
-  "unitChar": "S"
+  "woodCost": 10,
+  "ironCost": 10,
+  "goldCost": 0
 }

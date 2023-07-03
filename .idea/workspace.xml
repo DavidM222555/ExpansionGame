@@ -4,16 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Initial commit (;">
-      <change afterPath="$PROJECT_DIR$/src/main/assets/units/archer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/units/heavy-calvary.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/units/light-calvary.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/units/swordsman.json" afterDir="false" />
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Adding the basics of the unit viewer.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/MoveUnitCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/MovementHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/RandomMovementStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitMovementStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/units/archer.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/units/archer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/units/club-man.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/units/club-man.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/units/heavy-calvary.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/units/heavy-calvary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/units/light-calvary.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/units/light-calvary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/units/spear-man.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/units/spear-man.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/units/swordsman.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/units/swordsman.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/ResourceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceAmount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlockFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlockFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/SelectGameBlockCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/SelectGameBlockCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +42,8 @@
       <list>
         <option value="Enum" />
         <option value="Kotlin Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,16 +76,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "code.cleanup.on.save": "true",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -99,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688239405023</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding the basics of the unit viewer.">
+      <created>1688250169049</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688250169049</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +139,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit (;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit (;" />
+    <MESSAGE value="Adding the basics of the unit viewer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding the basics of the unit viewer." />
   </component>
 </project>

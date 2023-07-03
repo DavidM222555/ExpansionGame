@@ -1,6 +1,7 @@
 package game.input;
 
 import game.Game;
+import game.units.BuyUnitCommand;
 import game.world.block.SelectGameBlockCommand;
 import org.hexworks.zircon.api.uievent.KeyCode;
 import org.hexworks.zircon.api.uievent.MouseEvent;
@@ -15,21 +16,24 @@ public class InputHandler {
 
     public void executeKeyboardEvent(KeyCode keyCode) {
         if (keyCode.equals(KeyCode.KEY_S)) {
-            this.game.world.scrollForwardBy(1);
+            this.game.getWorld().scrollForwardBy(1);
         } else if (keyCode.equals(KeyCode.KEY_D)) {
-            this.game.world.scrollRightBy(1);
+            this.game.getWorld().scrollRightBy(1);
         } else if (keyCode.equals(KeyCode.KEY_W)) {
-            this.game.world.scrollBackwardBy(1);
+            this.game.getWorld().scrollBackwardBy(1);
         } else if (keyCode.equals(KeyCode.KEY_A)) {
-            this.game.world.scrollLeftBy(1);
+            this.game.getWorld().scrollLeftBy(1);
+        } else {
+            BuyUnitCommand.execute(keyCode, game);
         }
     }
 
     public void executeMouseEvent(MouseEvent mouseEvent) {
         var position = mouseEvent.getPosition();
-        var offset = this.game.world.getVisibleOffset().to2DPosition();
+        var offset = this.game.getWorld().getVisibleOffset().to2DPosition();
 
-        var selectedBlock = this.game.world.getBlock(position.plus(offset));
+        var selectedBlock =
+                this.game.getWorld().getBlock(position.plus(offset));
 
         SelectGameBlockCommand.execute(this.game, selectedBlock);
     }

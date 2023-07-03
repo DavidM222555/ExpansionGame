@@ -5,8 +5,10 @@ import org.hexworks.zircon.api.Modifiers;
 
 public class SelectGameBlockCommand {
     public static void execute(Game game, GameBlock gameBlockToSelect) {
-        if (game.selectedGameBlock != null) {
-            game.selectedGameBlock.setContent(game.selectedGameBlock.getContent().withRemovedModifiers(Modifiers.blink(), Modifiers.border()));
+        var selectedGameBlock = game.getSelectedGameBlock();
+
+        if (selectedGameBlock != null) {
+            selectedGameBlock.setContent(selectedGameBlock.getContent().withRemovedModifiers(Modifiers.blink(), Modifiers.border()));
         }
 
         gameBlockToSelect.setContent(gameBlockToSelect.getContent().withModifiers(Modifiers.blink(), Modifiers.border()));
