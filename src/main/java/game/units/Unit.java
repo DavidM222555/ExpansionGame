@@ -29,12 +29,20 @@ public class Unit implements Updatable, Movable {
     private int woodCost;
 
 
-    Unit(String name, int maxHealth, int attack, int defense) {
+    Unit(int currentHealth, Position pos, GameBlock blockUnitIsOn, char key,
+         String name, int maxHealth, int attack, int defense, int goldCost,
+         int ironCost, int woodCost) {
+        this.currentHealth = currentHealth;
+        this.pos = pos;
+        this.blockUnitIsOn = blockUnitIsOn;
+        this.key = key;
         this.name = name;
         this.maxHealth = maxHealth;
         this.attack = attack;
         this.defense = defense;
-        this.currentHealth = maxHealth;
+        this.goldCost = goldCost;
+        this.ironCost = ironCost;
+        this.woodCost = woodCost;
     }
 
     // Default constructor that is needed by Jackson JSON parser
@@ -123,6 +131,12 @@ public class Unit implements Updatable, Movable {
 
     public void setBlockUnitIsOn(GameBlock blockUnitIsOn) {
         this.blockUnitIsOn = blockUnitIsOn;
+    }
+
+    public Unit copy() {
+        return new Unit(this.currentHealth, this.pos, this.blockUnitIsOn,
+                this.key, this.name, this.maxHealth, this.attack,
+                this.defense, this.goldCost, this.ironCost, this.woodCost);
     }
 
     @Override

@@ -49,6 +49,7 @@ public class GameBlock extends BaseBlock<Tile> {
     }
 
     public void removeUnit() {
+        this.unit = null;
         this.setContent(this.getContent().asCharacterTileOrNull().withCharacter(' '));
     }
 

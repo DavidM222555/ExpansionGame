@@ -26,7 +26,6 @@ public class Game {
         this.player = new Player();
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
 
-        this.loop();
     }
 
     public World getWorld() {
@@ -56,11 +55,5 @@ public class Game {
     public UnitStore getUnitStore() {
         return unitStore;
     }
-
-    public void loop() {
-        new Thread(() -> {
-        }).start();
-    }
-
 
 }

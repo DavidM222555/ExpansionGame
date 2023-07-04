@@ -2,10 +2,14 @@ package game.gui;
 
 import game.GAME_CONSTANTS;
 import game.Game;
+import game.units.MoveUnitCommand;
 import game.world.block.TileStore;
 import org.hexworks.zircon.api.Components;
 import org.hexworks.zircon.api.GameComponents;
-import org.hexworks.zircon.api.component.*;
+import org.hexworks.zircon.api.component.HBox;
+import org.hexworks.zircon.api.component.LogArea;
+import org.hexworks.zircon.api.component.Panel;
+import org.hexworks.zircon.api.component.VBox;
 import org.hexworks.zircon.api.component.renderer.ComponentRenderer;
 import org.hexworks.zircon.api.game.ProjectionMode;
 import org.hexworks.zircon.api.graphics.BoxType;
@@ -15,14 +19,12 @@ import org.hexworks.zircon.api.uievent.UIEventResponse;
 import org.hexworks.zircon.api.view.base.BaseView;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static game.GAME_CONSTANTS.*;
 import static org.hexworks.zircon.api.ComponentDecorations.box;
 
 public class GameView extends BaseView {
-    Game game = new Game();
+    final Game game = new Game();
 
     VBox mainContainer =
             Components.vbox().withPreferredSize(this.getScreen().getSize()).build();
@@ -40,7 +42,7 @@ public class GameView extends BaseView {
             Components.logArea().withPreferredSize(GAME_CONSTANTS.LOGAREA_WIDTH, GAME_CONSTANTS.LOG_AREA_HEIGHT).withDecorations(box(BoxType.DOUBLE, "LOG")).build();
 
 
-    public GameView() throws IOException {
+    public GameView() throws IOException, InterruptedException {
         super(TILE_GRID, COLOR_THEME);
 
         var sidePanelContentWidth = this.sidePanel.getContentSize().getWidth();
@@ -73,11 +75,14 @@ public class GameView extends BaseView {
         mainContainer.addComponent(gameAndSidePanelContainer);
 
         this.getScreen().addComponent(mainContainer);
-
         this.setupInputCallbacks();
+
+        this.getScreen().display();
+
+        this.loop();
     }
 
-    private void setupInputCallbacks() {
+    public void setupInputCallbacks() {
         this.getScreen().handleKeyboardEvents(KeyboardEventType.KEY_PRESSED,
                 (event, ctx) -> {
             game.getInputHandler().executeKeyboardEvent(event.getCode());
@@ -89,6 +94,18 @@ public class GameView extends BaseView {
             game.getInputHandler().executeMouseEvent(event);
             return UIEventResponse.processed();
         });
+    }
+
+    public void loop() throws InterruptedException {
+        while (true) {
+            Thread.sleep(500);
+
+            synchronized (this.getScreen()) {
+                for (var unit : this.game.getPlayer().unitManager.getUnits()) {
+                    MoveUnitCommand.executeWithStrategy(game, unit);
+                }
+            }
+        }
     }
 
     private void setupUnitAndStructureGroup(VBox buttonContainer) {
@@ -105,10 +122,6 @@ public class GameView extends BaseView {
         var structureButton = Components.radioButton().withKey("S").withText(
                 "Structures").withPreferredSize(containerWidth, 2).build();
 
-
-        List<RadioButton> buttonList = new ArrayList<>();
-        buttonList.add(unitButton);
-        buttonList.add(structureButton);
 
         unitAndStructureButtonGroup.addComponent(unitButton);
         unitAndStructureButtonGroup.addComponent(structureButton);

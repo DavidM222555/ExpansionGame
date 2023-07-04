@@ -34,8 +34,7 @@ public class UnitStore {
     public static Optional<Unit> getUnitFromKey(KeyCode kc) {
         if (kc != null) {
             Character ch = kc.toCharOrNull();
-
-            return Optional.ofNullable(unitMap.get(ch));
+            return Optional.ofNullable(unitMap.get(ch).copy());
         }
 
         return Optional.empty();

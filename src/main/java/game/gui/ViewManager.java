@@ -7,16 +7,17 @@ import java.io.IOException;
 public class ViewManager {
     private final GameView gameView;
 
-    public ViewManager() throws IOException {
+    public ViewManager() throws IOException, InterruptedException {
         // Initialize the views and then dock the start menu
         StartMenuView startMenuView = new StartMenuView();
-        gameView = new GameView();
 
         startMenuView.dock();
+        gameView = new GameView();
 
-        // Set method for changing the view to the game screen on start
-        // game button activation
-        startMenuView.startGameButton.onActivated(Functions.fromConsumer(event -> gameView.dock()));
+        // Set method for changing the view to the game screen on activation
+        startMenuView.startGameButton.onActivated(Functions.fromConsumer(event -> {
+            gameView.dock();
+        }));
 
         // Set method for exiting game with 0 status on exit game button
         // activation.

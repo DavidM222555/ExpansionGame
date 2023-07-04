@@ -17,12 +17,11 @@ public class BuyUnitCommand {
                 setBlockAndUnitInteraction(game, selectedGameBlock, unit);
             }
         });
-
-        game.getPlayer().unitManager.printUnits();
     }
 
     private static void setBlockAndUnitInteraction(Game game,
                                                    GameBlock selectedGameBlock, Unit unit) {
-        MoveUnitCommand.executeWithKnownBlock(game, unit, selectedGameBlock);
+        MoveUnitCommand.executeWithKnownBlock(unit, selectedGameBlock);
+        game.getPlayer().unitManager.addUnit(unit);
     }
 }
