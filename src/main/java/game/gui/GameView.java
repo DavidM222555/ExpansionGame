@@ -78,7 +78,6 @@ public class GameView extends BaseView {
         this.setupInputCallbacks();
 
         this.getScreen().display();
-
         this.loop();
     }
 
@@ -97,6 +96,7 @@ public class GameView extends BaseView {
     }
 
     public void loop() throws InterruptedException {
+
         while (true) {
             Thread.sleep(500);
 
@@ -105,6 +105,7 @@ public class GameView extends BaseView {
                     MoveUnitCommand.executeWithStrategy(game, unit);
                 }
             }
+
         }
     }
 

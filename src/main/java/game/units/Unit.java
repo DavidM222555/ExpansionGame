@@ -1,13 +1,11 @@
 package game.units;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import game.common.Movable;
-import game.common.Updatable;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.data.Position;
 
 @SuppressWarnings("unused")
-public class Unit implements Updatable, Movable {
+public class Unit {
     @JsonIgnore
     int currentHealth;
     @JsonIgnore
@@ -137,23 +135,6 @@ public class Unit implements Updatable, Movable {
         return new Unit(this.currentHealth, this.pos, this.blockUnitIsOn,
                 this.key, this.name, this.maxHealth, this.attack,
                 this.defense, this.goldCost, this.ironCost, this.woodCost);
-    }
-
-    @Override
-    public void update() {
-    }
-
-    @Override
-    public void move(int x, int y) {
-
-    }
-
-    @Override
-    public void moveX(int x) {
-    }
-
-    @Override
-    public void moveY(int y) {
     }
 
 }
