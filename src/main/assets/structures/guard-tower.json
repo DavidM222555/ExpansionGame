@@ -1,0 +1,10 @@
+{
+  "key": "h",
+  "maxHealth": 100,
+  "visionRadius": 20,
+  "controlRadius": 10,
+  "controlStrength": 1,
+  "controlRate": 0.2,
+  "attack": 5,
+  "attackRadius": 5
+}

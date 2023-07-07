@@ -2,6 +2,7 @@ package game;
 
 import game.input.InputHandler;
 import game.player.Player;
+import game.structures.StructureReader;
 import game.units.UnitStore;
 import game.world.World;
 import game.world.WorldBuilder;
@@ -25,7 +26,11 @@ public class Game {
         this.inputHandler = new InputHandler(this);
         this.player = new Player();
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
+        var structReader =
+                StructureReader.readStructures("src/main/assets" +
+                        "/structures");
 
+        System.out.println("Read structures");
     }
 
     public World getWorld() {

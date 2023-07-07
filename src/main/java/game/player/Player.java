@@ -16,6 +16,11 @@ public class Player implements Updatable {
         this.structureManager = new StructureManager();
     }
 
+
+    /**
+     * Iterates over all structures and all units the player controls
+     * and performs legal operations for each.
+     */
     public void update() {
 
     }

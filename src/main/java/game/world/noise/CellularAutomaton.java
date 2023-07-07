@@ -5,6 +5,15 @@ import java.util.List;
 import java.util.Random;
 
 public class CellularAutomaton {
+
+    /**
+     * @param width        Width of the noise grid
+     * @param height       Height of the noise grid
+     * @param noiseDensity Represents the probability that a given cell will
+     *                     be marked active.
+     * @return A 2D boolean matrix of randomly generated values according to
+     * noiseDensity
+     */
     private static List<List<Boolean>> generateNoiseGrid(int width,
                                                          int height,
                                                          int noiseDensity) {
@@ -28,6 +37,7 @@ public class CellularAutomaton {
 
         return noiseGrid;
     }
+
 
     public static List<List<Boolean>> generateCellularAutomatonGrid(int width
             , int height, int noiseDensity, int neighborThreshold, int numOfRounds) {
@@ -53,13 +63,16 @@ public class CellularAutomaton {
 
                 newGrid.add(rowList);
             }
-
             currGrid = newGrid;
         }
-
         return currGrid;
     }
 
+
+    /**
+     * @param grid Boolean grid of active and inactive cells
+     * @return Number of neighbors of (x, y) that are active
+     */
     private static int getActiveNeighborCount(List<List<Boolean>> grid, int x
             , int y) {
         int neighborCount = 0;
@@ -78,6 +91,8 @@ public class CellularAutomaton {
             }
         }
 
+        // Subtract by 1 because in the calculation we always include the
+        // coordinate we are centered on.
         return neighborCount - 1;
     }
 }

@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Got the start of unit movement by random strategy going.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Preparing to handle a new way of organizing movement strategies.">
+      <change afterPath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/gui/ViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/gui/ViewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/RandomMovementStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/RandomMovementStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitMovementStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitMovementStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/noise/CellularAutomaton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/noise/CellularAutomaton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,16 +62,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "code.cleanup.on.save": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -117,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688440847242</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Preparing to handle a new way of organizing movement strategies.">
+      <created>1688488529820</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688488529820</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +152,8 @@
     <MESSAGE value="Adding the basics of the unit viewer." />
     <MESSAGE value="Start of unit movement and placement." />
     <MESSAGE value="Got the start of unit movement by random strategy going." />
-    <option name="LAST_COMMIT_MESSAGE" value="Got the start of unit movement by random strategy going." />
+    <MESSAGE value="Preparing to handle a new way of organizing movement strategies." />
+    <option name="LAST_COMMIT_MESSAGE" value="Preparing to handle a new way of organizing movement strategies." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

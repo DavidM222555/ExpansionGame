@@ -1,27 +1,39 @@
 package game.structures;
 
-import game.common.Updatable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.hexworks.zircon.api.data.Position;
 
-public abstract class Structure implements Updatable {
-    Position pos;
-    int health;
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
+@JsonSubTypes({@JsonSubTypes.Type(DefenseStructure.class),
+        @JsonSubTypes.Type(ResourceStructure.class),})
+public abstract class Structure {
+    char key;
     int maxHealth;
-    char structChar;
     int visionRadius;
     int controlRadius;
-    int controlStrength;
+    float controlStrength;
+    float controlRate;
 
+    @JsonIgnore
+    Position pos;
+    @JsonIgnore
+    int health;
 
-    Structure(Position pos, int health, int maxHealth, char structChar,
-              int visionRadius, int controlRadius, int controlStrength) {
+    Structure() {
+    }
+
+    Structure(Position pos, int health, int maxHealth, int visionRadius,
+              int controlRadius, int controlStrength, float controlRate) {
         this.pos = pos;
         this.health = health;
         this.maxHealth = maxHealth;
-        this.structChar = structChar;
         this.visionRadius = visionRadius;
         this.controlRadius = controlRadius;
         this.controlStrength = controlStrength;
+        this.controlRate = controlRate;
     }
-
 }

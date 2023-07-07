@@ -27,7 +27,7 @@ public class WorldBuilder {
     public World build(Size3D visibleSize) {
         return new World(blocks, visibleSize, worldSize);
     }
-
+    
     public WorldBuilder setInitialTiles() {
         var posIterator = worldSize.fetchPositions().iterator();
         var noiseGrid =
