@@ -13,7 +13,7 @@ public class BuyUnitCommand {
 
             // Make sure a block is selected and that it currently doesn't
             // have a structure or unit on it already.
-            if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt()) {
+            if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
                 setBlockAndUnitInteraction(game, selectedGameBlock, unit);
             }
         });

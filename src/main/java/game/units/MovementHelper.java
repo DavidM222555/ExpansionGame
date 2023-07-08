@@ -29,7 +29,7 @@ public class MovementHelper {
             if (moveInBounds(movedPos, game)) {
                 var gameBlockOnMovedPos = game.getBlockAtPosOrNull(movedPos);
 
-                if (gameBlockOnMovedPos.isPresent() && !gameBlockOnMovedPos.get().hasStructureOrUnitOnIt()) {
+                if (gameBlockOnMovedPos.isPresent() && !gameBlockOnMovedPos.get().hasStructureOrUnitOnIt() && gameBlockOnMovedPos.get().isPlayerMovable()) {
                     validMoves.add(gameBlockOnMovedPos.get());
                 }
             }
