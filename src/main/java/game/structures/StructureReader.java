@@ -29,7 +29,7 @@ public class StructureReader {
         if (dirFiles != null) {
             for (File child : dirFiles) {
                 var structure = readStructure(child.getPath());
-
+                System.out.println("Structure type: " + structure.getClass());
                 structureMap.put(structure.key, structure);
             }
         }

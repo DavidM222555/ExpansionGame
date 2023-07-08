@@ -8,8 +8,9 @@ import org.hexworks.zircon.api.data.Position;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
-@JsonSubTypes({@JsonSubTypes.Type(DefenseStructure.class),
-        @JsonSubTypes.Type(ResourceStructure.class),})
+@JsonSubTypes({@JsonSubTypes.Type(value = DefenseStructure.class),
+        @JsonSubTypes.Type(ResourceStructure.class),
+        @JsonSubTypes.Type(BasicStructure.class)})
 public abstract class Structure {
     char key;
     int maxHealth;

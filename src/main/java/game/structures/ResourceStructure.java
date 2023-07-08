@@ -1,7 +1,7 @@
 package game.structures;
 
 public class ResourceStructure extends Structure {
-    int structureUniqueGuy;
+    public String resourceType;
 
     ResourceStructure() {
         super();
