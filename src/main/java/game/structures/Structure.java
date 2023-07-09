@@ -16,8 +16,8 @@ public abstract class Structure {
     int maxHealth;
     int visionRadius;
     int controlRadius;
-    float controlStrength;
-    float controlRate;
+    int controlStrength;
+    int controlRate;
 
     @JsonIgnore
     Position pos;
@@ -27,8 +27,9 @@ public abstract class Structure {
     Structure() {
     }
 
-    Structure(Position pos, int health, int maxHealth, int visionRadius,
-              int controlRadius, int controlStrength, float controlRate) {
+    Structure(char key, int maxHealth, int visionRadius, int controlRadius,
+              int controlStrength, int controlRate, Position pos, int health) {
+        this.key = key;
         this.pos = pos;
         this.health = health;
         this.maxHealth = maxHealth;
@@ -37,4 +38,7 @@ public abstract class Structure {
         this.controlStrength = controlStrength;
         this.controlRate = controlRate;
     }
+
+    abstract Structure copy();
+
 }

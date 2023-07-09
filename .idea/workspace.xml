@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Polymorphic unit reader done.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Setup proper handling for blocks that don't allow unit movement and placement.">
+      <change afterPath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/assets/structures/wood-miner.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/vision/StructureVisionCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/MovementHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/MovementHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlockFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlockFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688841254384</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Setup proper handling for blocks that don't allow unit movement and placement.">
+      <created>1688841876453</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688841876453</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +175,8 @@
     <MESSAGE value="Preparing to handle a new way of organizing movement strategies." />
     <MESSAGE value="Start of structure reader." />
     <MESSAGE value="Polymorphic unit reader done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Polymorphic unit reader done." />
+    <MESSAGE value="Setup proper handling for blocks that don't allow unit movement and placement." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup proper handling for blocks that don't allow unit movement and placement." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,6 +10,8 @@ import org.hexworks.zircon.api.data.Position;
 import org.hexworks.zircon.api.data.Tile;
 import org.hexworks.zircon.api.data.base.BaseBlock;
 
+import java.util.Objects;
+
 import static game.world.block.TileStore.EMPTY_TILE;
 import static game.world.block.TileStore.GROUND_TILE;
 import static kotlinx.collections.immutable.ExtensionsKt.persistentMapOf;
@@ -49,12 +51,13 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
-        this.setContent(this.getContent().asCharacterTileOrNull().withCharacter(unit.getKey()));
+        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
     }
 
     public void removeUnit() {
         this.unit = null;
-        this.setContent(this.getContent().asCharacterTileOrNull().withCharacter(' '));
+
+        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(' '));
     }
 
     public void setResource(Resource resource) {
