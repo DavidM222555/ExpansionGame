@@ -6,6 +6,10 @@ public class DefenseStructure extends Structure {
     public int attack;
     public int attackRadius;
 
+    DefenseStructure() {
+        super();
+    }
+
     DefenseStructure(char key, String name, int maxHealth, int visionRadius,
                      int controlRadius, int controlStrength, int controlRate,
                      Position pos, int health, int attack, int attackRadius) {

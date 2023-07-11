@@ -5,6 +5,9 @@ import org.hexworks.zircon.api.data.Position;
 public class ResourceStructure extends Structure {
     public String resourceType;
 
+    ResourceStructure() {
+        super();
+    }
 
     ResourceStructure(char key, String name, int maxHealth, int visionRadius,
                       int controlRadius, int controlStrength, int controlRate

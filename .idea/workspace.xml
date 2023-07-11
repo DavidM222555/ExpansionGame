@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Setting up structure and unit buying interactions.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/BuyCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/BuyStructureCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/wood-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/wood-harvester.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/StructureReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688861043590</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Setting up structure and unit buying interactions.">
+      <created>1689034928680</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1689034928680</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

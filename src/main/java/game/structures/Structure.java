@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.hexworks.zircon.api.data.Position;
 
-@SuppressWarnings("ALL")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
 @JsonSubTypes({@JsonSubTypes.Type(DefenseStructure.class),

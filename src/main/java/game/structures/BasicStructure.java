@@ -3,6 +3,9 @@ package game.structures;
 import org.hexworks.zircon.api.data.Position;
 
 public class BasicStructure extends Structure {
+    BasicStructure() {
+        super();
+    }
 
     BasicStructure(char key, String name, int maxHealth, int visionRadius,
                    int controlRadius, int controlStrength, int controlRate,
