@@ -4,17 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Setup proper handling for blocks that don't allow unit movement and placement.">
-      <change afterPath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/assets/structures/wood-miner.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/vision/StructureVisionCommand.java" afterDir="false" />
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Setting up structure and unit buying interactions.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/BuyCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/BuyStructureCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/wood-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/wood-harvester.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/StructureReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/StructureStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/UnitStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +78,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -86,6 +93,42 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -153,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688841876453</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Have basics of structure store setup.">
+      <created>1688861043590</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688861043590</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +226,9 @@
     <MESSAGE value="Start of structure reader." />
     <MESSAGE value="Polymorphic unit reader done." />
     <MESSAGE value="Setup proper handling for blocks that don't allow unit movement and placement." />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup proper handling for blocks that don't allow unit movement and placement." />
+    <MESSAGE value="Have basics of structure store setup." />
+    <MESSAGE value="Setting up structure and unit buying interactions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setting up structure and unit buying interactions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

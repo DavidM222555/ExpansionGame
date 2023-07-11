@@ -1,5 +1,6 @@
 {
-  "key": "j",
+  "key": "K",
+  "name": "WoodHarvester",
   "maxHealth": 100,
   "visionRadius": 20,
   "controlRadius": 10,

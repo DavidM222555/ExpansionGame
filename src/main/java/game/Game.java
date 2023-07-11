@@ -2,7 +2,7 @@ package game;
 
 import game.input.InputHandler;
 import game.player.Player;
-import game.structures.StructureReader;
+import game.structures.StructureStore;
 import game.units.UnitStore;
 import game.world.World;
 import game.world.WorldBuilder;
@@ -16,6 +16,7 @@ import java.util.Optional;
 public class Game {
     private final InputHandler inputHandler;
     private final UnitStore unitStore;
+    private final StructureStore structureStore;
     private final World world;
     private final Player player;
     private GameBlock selectedGameBlock;
@@ -26,11 +27,8 @@ public class Game {
         this.inputHandler = new InputHandler(this);
         this.player = new Player();
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
-        var structReader =
-                StructureReader.readStructures("src/main/assets" +
-                        "/structures");
-
-        System.out.println("Read structures");
+        this.structureStore = StructureStore.fromJSONDirectory("src/main" +
+                "/assets/structures");
     }
 
     public World getWorld() {

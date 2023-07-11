@@ -1,7 +1,7 @@
 package game.input;
 
+import game.BuyCommand;
 import game.Game;
-import game.units.BuyUnitCommand;
 import game.world.block.SelectGameBlockCommand;
 import org.hexworks.zircon.api.uievent.KeyCode;
 import org.hexworks.zircon.api.uievent.MouseEvent;
@@ -24,7 +24,7 @@ public class InputHandler {
         } else if (keyCode.equals(KeyCode.KEY_A)) {
             this.game.getWorld().scrollLeftBy(1);
         } else {
-            BuyUnitCommand.execute(keyCode, game);
+            BuyCommand.execute(keyCode, game);
         }
     }
 

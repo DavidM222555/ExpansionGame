@@ -1,5 +1,6 @@
 {
-  "key": "j",
+  "key": "G",
+  "name": "GoldMiner",
   "maxHealth": 100,
   "visionRadius": 20,
   "controlRadius": 10,

@@ -1,5 +1,6 @@
 {
-  "key": "j",
+  "key": "J",
+  "name": "IronMiner",
   "maxHealth": 100,
   "visionRadius": 20,
   "controlRadius": 10,

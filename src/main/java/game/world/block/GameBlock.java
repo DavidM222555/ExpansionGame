@@ -46,13 +46,16 @@ public class GameBlock extends BaseBlock<Tile> {
     }
 
     public void setStructure(Structure structure) {
+        System.out.println("In this guy");
         this.structure = structure;
+        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(structure.getKey()));
     }
 
     public void setUnit(Unit unit) {
         this.unit = unit;
         this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
     }
+
 
     public void removeUnit() {
         this.unit = null;

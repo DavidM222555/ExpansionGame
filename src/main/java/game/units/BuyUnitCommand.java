@@ -6,7 +6,7 @@ import org.hexworks.zircon.api.uievent.KeyCode;
 
 public class BuyUnitCommand {
     public static void execute(KeyCode kc, Game game) {
-        var possibleUnit = UnitStore.getUnitFromKey(kc);
+        var possibleUnit = UnitStore.getUnitFromKeyCode(kc);
 
         possibleUnit.ifPresent(unit -> {
             var selectedGameBlock = game.getSelectedGameBlock();

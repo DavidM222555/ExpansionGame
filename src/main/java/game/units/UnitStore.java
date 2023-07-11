@@ -31,13 +31,17 @@ public class UnitStore {
         return new UnitStore(unitMap);
     }
 
-    public static Optional<Unit> getUnitFromKey(KeyCode kc) {
+    public static Optional<Unit> getUnitFromKeyCode(KeyCode kc) {
         if (kc != null) {
             Character ch = kc.toCharOrNull();
             return Optional.ofNullable(unitMap.get(ch).copy());
         }
 
         return Optional.empty();
+    }
+
+    public static boolean containsKey(Character key) {
+        return unitMap.containsKey(key);
     }
 
     public Component toComponent(int width) {
@@ -55,7 +59,9 @@ public class UnitStore {
         VerticalScrollableList<String> vsl =
                 new VerticalScrollableList<>(Size.create(width - 2, 5),
                         Position.create(0, 0),
-                        unitMap.entrySet().stream().map((entry) -> entry.getValue().getName()).toList(), onItemCallback, renderItemCallback, new VerticalScrollBarRenderer());
+                        unitMap.values().stream().map(Unit::getName).toList()
+                        , onItemCallback, renderItemCallback,
+                        new VerticalScrollBarRenderer());
 
         unitComponent.addFragment(vsl);
 

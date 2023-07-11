@@ -19,6 +19,10 @@ public class StructureStore {
         return new StructureStore(structureMap);
     }
 
+    public static boolean containsKey(Character key) {
+        return structureMap.containsKey(key);
+    }
+
     public static Optional<Structure> getStructureFromKey(KeyCode kc) {
         if (kc != null) {
             Character ch = kc.toCharOrNull();
