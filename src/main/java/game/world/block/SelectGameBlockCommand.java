@@ -11,7 +11,7 @@ public class SelectGameBlockCommand {
             selectedGameBlock.setContent(selectedGameBlock.getContent().withRemovedModifiers(Modifiers.blink(), Modifiers.border()));
         }
 
-        gameBlockToSelect.setContent(gameBlockToSelect.getContent().withModifiers(Modifiers.blink(), Modifiers.border()));
+        gameBlockToSelect.setContent(gameBlockToSelect.getContent().withAddedModifiers(Modifiers.blink(), Modifiers.border()));
         game.setSelectedGameBlock(gameBlockToSelect);
     }
 }
