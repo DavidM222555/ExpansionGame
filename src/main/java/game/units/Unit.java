@@ -10,7 +10,6 @@ public class Unit {
     int currentHealth;
     @JsonIgnore
     Position pos;
-
     @JsonIgnore
     GameBlock blockUnitIsOn;
 
@@ -136,5 +135,4 @@ public class Unit {
                 this.key, this.name, this.maxHealth, this.attack,
                 this.defense, this.goldCost, this.ironCost, this.woodCost);
     }
-
 }

@@ -5,6 +5,7 @@ import game.structures.Structure;
 import game.teams.Team;
 import game.units.Unit;
 import kotlin.Pair;
+import org.hexworks.zircon.api.Modifiers;
 import org.hexworks.zircon.api.data.BlockTileType;
 import org.hexworks.zircon.api.data.Position;
 import org.hexworks.zircon.api.data.Tile;
@@ -23,7 +24,7 @@ public class GameBlock extends BaseBlock<Tile> {
     Resource resource;
     Team team;
     Position pos;
-
+    
     // Represents whether a play is capable of going on this tile
     boolean playerMovable;
 
@@ -46,9 +47,8 @@ public class GameBlock extends BaseBlock<Tile> {
     }
 
     public void setStructure(Structure structure) {
-        System.out.println("In this guy");
         this.structure = structure;
-        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(structure.getKey()));
+        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(structure.getKey()).withModifiers(Modifiers.underline()));
     }
 
     public void setUnit(Unit unit) {
@@ -56,10 +56,8 @@ public class GameBlock extends BaseBlock<Tile> {
         this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
     }
 
-
     public void removeUnit() {
         this.unit = null;
-
         this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(' '));
     }
 
@@ -82,5 +80,4 @@ public class GameBlock extends BaseBlock<Tile> {
     public boolean isPlayerMovable() {
         return this.playerMovable;
     }
-
 }

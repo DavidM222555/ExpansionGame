@@ -1,5 +1,6 @@
 package game.world;
 
+import game.resources.Resource;
 import game.world.block.GameBlock;
 import game.world.block.GameBlockFactory;
 import game.world.noise.CellularAutomaton;
@@ -12,9 +13,7 @@ import java.util.Map;
 public class WorldBuilder {
     private final int width;
     private final int height;
-
     private final Size3D worldSize;
-
     private final Map<Position3D, GameBlock> blocks = new HashMap<>();
 
     public WorldBuilder(Size3D worldSize) {
@@ -27,7 +26,7 @@ public class WorldBuilder {
     public World build(Size3D visibleSize) {
         return new World(blocks, visibleSize, worldSize);
     }
-    
+
     public WorldBuilder setInitialTiles() {
         var posIterator = worldSize.fetchPositions().iterator();
         var noiseGrid =
@@ -43,6 +42,23 @@ public class WorldBuilder {
             } else {
                 blocks.put(currentPos,
                         GameBlockFactory.ground(currentPos.to2DPosition()));
+            }
+        }
+
+        return this;
+    }
+
+    public WorldBuilder setResourcesOnTiles(Resource resource, int freq) {
+        var posIterator = worldSize.fetchPositions().iterator();
+        var noiseGrid =
+                CellularAutomaton.generateCellularAutomatonGrid(this.width,
+                        this.height, freq, 4, 7);
+
+        while (posIterator.hasNext()) {
+            var currentPos = posIterator.next();
+
+            if (noiseGrid.get(currentPos.getY()).get(currentPos.getX())) {
+                // Pass
             }
         }
 

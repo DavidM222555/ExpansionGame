@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Setting up structure and unit buying interactions.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Parameterless constructors are required for proper functioning of Jackson JSON parser.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/BasicStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/DefenseStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/BuyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/BuyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

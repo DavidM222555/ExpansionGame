@@ -16,12 +16,12 @@ public class BuyCommand {
         if (charForKey == null) {
             return;
         }
-        
+
         if (UnitStore.containsKey(charForKey)) {
-            System.out.println("Buying a unit");
+            // System.out.println("Buying a unit");
             BuyUnitCommand.execute(kc, game);
         } else if (StructureStore.containsKey(charForKey)) {
-            System.out.println("Buying a structure");
+            // System.out.println("Buying a structure");
             BuyStructureCommand.execute(kc, game);
         }
     }
