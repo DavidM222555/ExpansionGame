@@ -1,6 +1,5 @@
 package game;
 
-import game.input.InputHandler;
 import game.player.Player;
 import game.structures.StructureStore;
 import game.units.UnitStore;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class Game {
-    private final InputHandler inputHandler;
     private final UnitStore unitStore;
     private final StructureStore structureStore;
     private final World world;
@@ -24,7 +22,6 @@ public class Game {
     public Game() throws IOException {
         this.world = new WorldBuilder(Size3D.create(GAME_CONSTANTS.GAME_X,
                 GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
-        this.inputHandler = new InputHandler(this);
         this.player = new Player();
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
         this.structureStore = StructureStore.fromJSONDirectory("src/main" +
@@ -39,9 +36,6 @@ public class Game {
         return Optional.ofNullable(this.world.fetchBlockAtOrNull(pos.toPosition3D(0)));
     }
 
-    public InputHandler getInputHandler() {
-        return inputHandler;
-    }
 
     public GameBlock getSelectedGameBlock() {
         return selectedGameBlock;

@@ -1,41 +1,43 @@
 package game.input;
 
 import game.BuyCommand;
-import game.Game;
+import game.gui.GameView;
 import game.world.block.SelectGameBlockCommand;
 import org.hexworks.zircon.api.uievent.KeyCode;
 import org.hexworks.zircon.api.uievent.MouseEvent;
 
 
 public class InputHandler {
-    Game game;
+    GameView gameView;
 
-    public InputHandler(Game game) {
-        this.game = game;
+    public InputHandler(GameView game) {
+        this.gameView = game;
     }
 
     public void executeKeyboardEvent(KeyCode keyCode) {
         if (keyCode.equals(KeyCode.KEY_S)) {
-            this.game.getWorld().scrollForwardBy(1);
+            this.gameView.getWorld().scrollForwardBy(1);
         } else if (keyCode.equals(KeyCode.KEY_D)) {
-            this.game.getWorld().scrollRightBy(1);
+            this.gameView.getWorld().scrollRightBy(1);
         } else if (keyCode.equals(KeyCode.KEY_W)) {
-            this.game.getWorld().scrollBackwardBy(1);
+            this.gameView.getWorld().scrollBackwardBy(1);
         } else if (keyCode.equals(KeyCode.KEY_A)) {
-            this.game.getWorld().scrollLeftBy(1);
+            this.gameView.getWorld().scrollLeftBy(1);
+        } else if (keyCode.equals(KeyCode.SPACE)) {
+            this.gameView.takeTurn();
         } else {
-            BuyCommand.execute(keyCode, game);
+            BuyCommand.execute(keyCode, gameView.getGame());
         }
     }
 
     public void executeMouseEvent(MouseEvent mouseEvent) {
         var position = mouseEvent.getPosition();
-        var offset = this.game.getWorld().getVisibleOffset().to2DPosition();
+        var offset = this.gameView.getWorld().getVisibleOffset().to2DPosition();
 
         var selectedBlock =
-                this.game.getWorld().getBlock(position.plus(offset));
+                this.gameView.getWorld().getBlock(position.plus(offset));
 
-        SelectGameBlockCommand.execute(this.game, selectedBlock);
+        SelectGameBlockCommand.execute(this.gameView.getGame(), selectedBlock);
     }
 
 }

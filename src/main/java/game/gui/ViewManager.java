@@ -16,8 +16,7 @@ public class ViewManager {
 
         // Set method for changing the view to the game screen on activation
         startMenuView.startGameButton.onActivated(Functions.fromConsumer(event -> {
-            System.out.println("This guy is activated");
-            startMenuView.replaceWith(gameView);
+            gameView.dock();
         }));
 
         // Set method for exiting game with 0 status on exit game button

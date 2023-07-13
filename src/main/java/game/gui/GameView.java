@@ -2,7 +2,9 @@ package game.gui;
 
 import game.GAME_CONSTANTS;
 import game.Game;
+import game.input.InputHandler;
 import game.units.MoveUnitCommand;
+import game.world.World;
 import game.world.block.TileStore;
 import kotlin.Unit;
 import org.hexworks.zircon.api.Components;
@@ -43,8 +45,13 @@ public class GameView extends BaseView {
     Component unitListComponent;
     Component structureListComponent;
 
+    InputHandler inputHandler;
+
+
     public GameView() throws IOException, InterruptedException {
         super(TILE_GRID, COLOR_THEME);
+
+        this.inputHandler = new InputHandler(this);
 
         var sidePanelContentWidth = this.sidePanel.getContentSize().getWidth();
         var resourceComponent =
@@ -81,34 +88,33 @@ public class GameView extends BaseView {
 
         this.getScreen().addComponent(mainContainer);
         this.setupInputCallbacks();
+    }
 
-        this.getScreen().display();
-        this.loop();
+    public Game getGame() {
+        return this.game;
+    }
+
+    public World getWorld() {
+        return this.game.getWorld();
     }
 
     public void setupInputCallbacks() {
         this.getScreen().handleKeyboardEvents(KeyboardEventType.KEY_PRESSED,
                 (event, ctx) -> {
-            game.getInputHandler().executeKeyboardEvent(event.getCode());
+            inputHandler.executeKeyboardEvent(event.getCode());
             return UIEventResponse.processed();
         });
 
         this.getScreen().handleMouseEvents(MouseEventType.MOUSE_PRESSED,
                 (event, ctx) -> {
-            game.getInputHandler().executeMouseEvent(event);
+            inputHandler.executeMouseEvent(event);
             return UIEventResponse.processed();
         });
     }
 
-    public void loop() throws InterruptedException {
-        while (true) {
-            Thread.sleep(500);
-
-            synchronized (this.getScreen()) {
-                for (var unit : this.game.getPlayer().unitManager.getUnits()) {
-                    MoveUnitCommand.executeWithStrategy(game, unit);
-                }
-            }
+    public void takeTurn() {
+        for (var unit : this.game.getPlayer().unitManager.getUnits()) {
+            MoveUnitCommand.executeWithStrategy(game, unit);
         }
     }
 
@@ -132,7 +138,7 @@ public class GameView extends BaseView {
         unitAndStructureButtonHolder.addComponent(unitButton);
         unitAndStructureButtonHolder.addComponent(structureButton);
         buttonContainer.addComponent(unitAndStructureButtonHolder);
-
+        
         // Set up the callbacks for rendering the unit list and structure lists
         // to the screen.
         unitButton.onActivated((event) -> {
