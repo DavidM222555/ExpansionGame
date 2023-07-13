@@ -1,7 +1,7 @@
 {
-  "key": "H",
-  "name": "Guard Tower",
-  "maxHealth": 100,
+  "key": "L",
+  "name": "Wall",
+  "maxHealth": 120,
   "visionRadius": 20,
   "controlRadius": 10,
   "controlStrength": 1,

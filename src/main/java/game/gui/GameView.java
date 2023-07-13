@@ -4,12 +4,10 @@ import game.GAME_CONSTANTS;
 import game.Game;
 import game.units.MoveUnitCommand;
 import game.world.block.TileStore;
+import kotlin.Unit;
 import org.hexworks.zircon.api.Components;
 import org.hexworks.zircon.api.GameComponents;
-import org.hexworks.zircon.api.component.HBox;
-import org.hexworks.zircon.api.component.LogArea;
-import org.hexworks.zircon.api.component.Panel;
-import org.hexworks.zircon.api.component.VBox;
+import org.hexworks.zircon.api.component.*;
 import org.hexworks.zircon.api.component.renderer.ComponentRenderer;
 import org.hexworks.zircon.api.game.ProjectionMode;
 import org.hexworks.zircon.api.graphics.BoxType;
@@ -41,27 +39,34 @@ public class GameView extends BaseView {
     LogArea logArea =
             Components.logArea().withPreferredSize(GAME_CONSTANTS.LOGAREA_WIDTH, GAME_CONSTANTS.LOG_AREA_HEIGHT).withDecorations(box(BoxType.DOUBLE, "LOG")).build();
 
+    Panel unitOrStructureListHolderComponent;
+    Component unitListComponent;
+    Component structureListComponent;
 
     public GameView() throws IOException, InterruptedException {
         super(TILE_GRID, COLOR_THEME);
 
         var sidePanelContentWidth = this.sidePanel.getContentSize().getWidth();
-
         var resourceComponent =
                 this.game.getPlayer().resourceManager.toComponent(sidePanelContentWidth);
-
 
         this.sidePanel.addComponent(resourceComponent);
         this.setupUnitAndStructureGroup(this.sidePanel);
 
-        var unitListComponent =
+        unitListComponent =
                 this.game.getUnitStore().toComponent(sidePanelContentWidth);
-        this.sidePanel.addComponent(unitListComponent);
+
+        structureListComponent =
+                this.game.getStructureStore().toComponent(sidePanelContentWidth);
+
+        unitOrStructureListHolderComponent =
+                Components.panel().withPreferredSize(unitListComponent.getSize()).build();
+
+        sidePanel.addComponent(unitOrStructureListHolderComponent);
 
         ComponentRenderer<Panel> gameRenderer =
                 GameComponents.newGameAreaComponentRenderer(game.getWorld(),
                         ProjectionMode.TOP_DOWN, TileStore.GROUND_TILE);
-
 
         var gamePanel = Components.panel().withPreferredSize(GAME_AREA_WIDTH,
                 GAME_AREA_HEIGHT).withComponentRenderer(gameRenderer).build();
@@ -96,7 +101,6 @@ public class GameView extends BaseView {
     }
 
     public void loop() throws InterruptedException {
-
         while (true) {
             Thread.sleep(500);
 
@@ -105,7 +109,6 @@ public class GameView extends BaseView {
                     MoveUnitCommand.executeWithStrategy(game, unit);
                 }
             }
-
         }
     }
 
@@ -123,12 +126,28 @@ public class GameView extends BaseView {
         var structureButton = Components.radioButton().withKey("S").withText(
                 "Structures").withPreferredSize(containerWidth, 2).build();
 
-
         unitAndStructureButtonGroup.addComponent(unitButton);
         unitAndStructureButtonGroup.addComponent(structureButton);
 
         unitAndStructureButtonHolder.addComponent(unitButton);
         unitAndStructureButtonHolder.addComponent(structureButton);
         buttonContainer.addComponent(unitAndStructureButtonHolder);
+
+        // Set up the callbacks for rendering the unit list and structure lists
+        // to the screen.
+        unitButton.onActivated((event) -> {
+            this.unitOrStructureListHolderComponent.detachAllComponents();
+            this.unitOrStructureListHolderComponent.addComponent(this.unitListComponent);
+
+            return Unit.INSTANCE;
+        });
+
+        structureButton.onActivated((event) -> {
+            this.unitOrStructureListHolderComponent.detachAllComponents();
+            this.unitOrStructureListHolderComponent.addComponent(this.structureListComponent);
+
+            return Unit.INSTANCE;
+        });
     }
+
 }

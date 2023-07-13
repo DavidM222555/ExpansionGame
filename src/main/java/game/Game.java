@@ -59,4 +59,8 @@ public class Game {
         return unitStore;
     }
 
+    public StructureStore getStructureStore() {
+        return structureStore;
+    }
+
 }

@@ -1,6 +1,6 @@
 {
   "key": "G",
-  "name": "GoldMiner",
+  "name": "Gold Miner",
   "maxHealth": 100,
   "visionRadius": 20,
   "controlRadius": 10,
