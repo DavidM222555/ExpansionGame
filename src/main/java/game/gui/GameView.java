@@ -138,12 +138,14 @@ public class GameView extends BaseView {
         unitAndStructureButtonHolder.addComponent(unitButton);
         unitAndStructureButtonHolder.addComponent(structureButton);
         buttonContainer.addComponent(unitAndStructureButtonHolder);
-        
+
+
         // Set up the callbacks for rendering the unit list and structure lists
         // to the screen.
         unitButton.onActivated((event) -> {
             this.unitOrStructureListHolderComponent.detachAllComponents();
             this.unitOrStructureListHolderComponent.addComponent(this.unitListComponent);
+            unitButton.clearFocus();
 
             return Unit.INSTANCE;
         });
@@ -151,6 +153,7 @@ public class GameView extends BaseView {
         structureButton.onActivated((event) -> {
             this.unitOrStructureListHolderComponent.detachAllComponents();
             this.unitOrStructureListHolderComponent.addComponent(this.structureListComponent);
+            structureButton.clearFocus();
 
             return Unit.INSTANCE;
         });

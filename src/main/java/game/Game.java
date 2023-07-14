@@ -36,7 +36,6 @@ public class Game {
         return Optional.ofNullable(this.world.fetchBlockAtOrNull(pos.toPosition3D(0)));
     }
 
-
     public GameBlock getSelectedGameBlock() {
         return selectedGameBlock;
     }
@@ -56,5 +55,4 @@ public class Game {
     public StructureStore getStructureStore() {
         return structureStore;
     }
-
 }

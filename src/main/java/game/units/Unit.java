@@ -2,6 +2,8 @@ package game.units;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import game.world.block.GameBlock;
+import org.hexworks.zircon.api.Components;
+import org.hexworks.zircon.api.component.Component;
 import org.hexworks.zircon.api.data.Position;
 
 @SuppressWarnings("unused")
@@ -134,5 +136,15 @@ public class Unit {
         return new Unit(this.currentHealth, this.pos, this.blockUnitIsOn,
                 this.key, this.name, this.maxHealth, this.attack,
                 this.defense, this.goldCost, this.ironCost, this.woodCost);
+    }
+
+    public Component toComponent(int width) {
+        var unitComponentContainer =
+                Components.hbox().withPreferredSize(width, 6).build();
+        var leftUnitColumn = Components.vbox().build();
+        var rightUnitColumn = Components.vbox().build();
+
+
+        return unitComponentContainer;
     }
 }
