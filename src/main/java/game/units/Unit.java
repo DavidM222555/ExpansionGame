@@ -3,6 +3,7 @@ package game.units;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.Components;
+import org.hexworks.zircon.api.builder.component.LabelBuilder;
 import org.hexworks.zircon.api.component.Component;
 import org.hexworks.zircon.api.data.Position;
 
@@ -144,6 +145,12 @@ public class Unit {
         var leftUnitColumn = Components.vbox().build();
         var rightUnitColumn = Components.vbox().build();
 
+        // Key
+        leftUnitColumn.addComponent(LabelBuilder.newBuilder().withText("Key: "
+                + this.key));
+
+        // Attack & Defense
+        leftUnitColumn.addComponent(LabelBuilder.newBuilder().withText("A: " + attack + " D: " + defense));
 
         return unitComponentContainer;
     }

@@ -58,19 +58,19 @@ public class GameView extends BaseView {
                 this.game.getPlayer().resourceManager.toComponent(sidePanelContentWidth);
 
         this.sidePanel.addComponent(resourceComponent);
-        this.setupUnitAndStructureGroup(this.sidePanel);
 
+        // Handle setting up the unit and structure information part of the
+        // side-panel
+        this.setupUnitAndStructureGroup(this.sidePanel);
         unitListComponent =
                 this.game.getUnitStore().toComponent(sidePanelContentWidth);
-
         structureListComponent =
                 this.game.getStructureStore().toComponent(sidePanelContentWidth);
-
         unitOrStructureListHolderComponent =
                 Components.panel().withPreferredSize(unitListComponent.getSize()).build();
-
         sidePanel.addComponent(unitOrStructureListHolderComponent);
 
+        
         ComponentRenderer<Panel> gameRenderer =
                 GameComponents.newGameAreaComponentRenderer(game.getWorld(),
                         ProjectionMode.TOP_DOWN, TileStore.GROUND_TILE);
@@ -138,7 +138,6 @@ public class GameView extends BaseView {
         unitAndStructureButtonHolder.addComponent(unitButton);
         unitAndStructureButtonHolder.addComponent(structureButton);
         buttonContainer.addComponent(unitAndStructureButtonHolder);
-
 
         // Set up the callbacks for rendering the unit list and structure lists
         // to the screen.
