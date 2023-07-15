@@ -1,6 +1,7 @@
 package game.units;
 
 import game.Game;
+import game.player.Player;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.uievent.KeyCode;
 
@@ -9,19 +10,32 @@ public class BuyUnitCommand {
         var possibleUnit = UnitStore.getUnitFromKeyCode(kc);
 
         possibleUnit.ifPresent(unit -> {
-            var selectedGameBlock = game.getSelectedGameBlock();
+            if (haveEnoughForUnit(unit, game.getPlayer())) {
+                var selectedGameBlock = game.getSelectedGameBlock();
 
-            // Make sure a block is selected and that it currently doesn't
-            // have a structure or unit on it already.
-            if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
-                setBlockAndUnitInteraction(game, selectedGameBlock, unit);
+                // Make sure a block is selected and that it currently doesn't
+                // have a structure or unit on it already.
+                if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
+                    setBlockAndUnitInteraction(game, selectedGameBlock, unit);
+                }
             }
+
         });
     }
 
     private static void setBlockAndUnitInteraction(Game game,
                                                    GameBlock selectedGameBlock, Unit unit) {
         MoveUnitCommand.executeWithKnownBlock(unit, selectedGameBlock);
-        game.getPlayer().unitManager.addUnit(unit);
+        game.getPlayer().addUnit(unit);
+        handleUnitCost(unit, game.getPlayer());
+    }
+
+    private static boolean haveEnoughForUnit(Unit unit, Player player) {
+        return (unit.getGoldCost() <= player.getGoldAmount() && unit.getIronCost() <= player.getIronAmount() && unit.getWoodCost() <= player.getWoodAmount());
+    }
+
+    private static void handleUnitCost(Unit unit, Player player) {
+        player.resourceManager.changeResourceAmounts(-1 * unit.getGoldCost(),
+                -1 * unit.getIronCost(), -1 * unit.getWoodCost());
     }
 }

@@ -6,5 +6,8 @@
   "controlRadius": 10,
   "controlStrength": 1,
   "controlRate": 0.2,
-  "resourceType": "iron"
+  "resourceType": "iron",
+  "woodCost": 70,
+  "ironCost": 10,
+  "goldCost": 0
 }

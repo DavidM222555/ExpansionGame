@@ -78,6 +78,12 @@ public class ResourceManager {
                 this.wood.amount));
     }
 
+    public void changeResourceAmounts(int goldDx, int ironDx, int woodDx) {
+        this.changeGoldAmount(goldDx);
+        this.changeIronAmount(ironDx);
+        this.changeWoodAmount(woodDx);
+    }
+
     public Component toComponent(int width) {
         VBox resourcesComponent = Components.vbox().withPreferredSize(width,
                 6).withDecorations(box(BoxType.SINGLE, "Resources"), margin(0

@@ -4,7 +4,7 @@
   "maxHealth": 120,
   "attack": 15,
   "defense": 15,
-  "woodCost": 10,
+  "woodCost": 70,
   "ironCost": 10,
   "goldCost": 0
 }

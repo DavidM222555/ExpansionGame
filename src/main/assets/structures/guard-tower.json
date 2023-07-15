@@ -7,5 +7,8 @@
   "controlStrength": 1,
   "controlRate": 1,
   "attack": 5,
-  "attackRadius": 5
+  "attackRadius": 5,
+  "woodCost": 70,
+  "ironCost": 10,
+  "goldCost": 0
 }

@@ -11,7 +11,8 @@ public class ResourceStructure extends Structure {
 
     ResourceStructure(char key, String name, int maxHealth, int visionRadius,
                       int controlRadius, int controlStrength, int controlRate
-            , Position pos, int health, String resourceType) {
+            , Position pos, int health, String resourceType, int goldCost,
+                      int ironCost, int woodCost) {
         this.key = key;
         this.name = name;
         this.pos = pos;
@@ -22,12 +23,16 @@ public class ResourceStructure extends Structure {
         this.controlStrength = controlStrength;
         this.controlRate = controlRate;
         this.resourceType = resourceType;
+        this.goldCost = goldCost;
+        this.ironCost = ironCost;
+        this.woodCost = woodCost;
     }
 
     @Override
     ResourceStructure copy() {
         return new ResourceStructure(this.key, this.name, this.maxHealth,
                 this.visionRadius, this.controlRadius, this.controlStrength,
-                this.controlRate, this.pos, this.health, this.resourceType);
+                this.controlRate, this.pos, this.health, this.resourceType,
+                this.goldCost, this.ironCost, this.woodCost);
     }
 }

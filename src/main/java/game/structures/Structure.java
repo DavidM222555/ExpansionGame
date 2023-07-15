@@ -20,6 +20,10 @@ public abstract class Structure {
     int controlStrength;
     int controlRate;
 
+    int goldCost;
+    int ironCost;
+    int woodCost;
+
     @JsonIgnore
     Position pos;
     @JsonIgnore
@@ -100,5 +104,29 @@ public abstract class Structure {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getGoldCost() {
+        return this.goldCost;
+    }
+
+    public void setGoldCost(int newGoldCost) {
+        this.goldCost = newGoldCost;
+    }
+
+    public int getIronCost() {
+        return this.ironCost;
+    }
+
+    public void setIronCost(int newIronCost) {
+        this.ironCost = newIronCost;
+    }
+
+    public int getWoodCost() {
+        return this.woodCost;
+    }
+
+    public void setWoodCost(int newWoodCost) {
+        this.woodCost = newWoodCost;
     }
 }

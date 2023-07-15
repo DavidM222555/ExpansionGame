@@ -12,7 +12,8 @@ public class DefenseStructure extends Structure {
 
     DefenseStructure(char key, String name, int maxHealth, int visionRadius,
                      int controlRadius, int controlStrength, int controlRate,
-                     Position pos, int health, int attack, int attackRadius) {
+                     Position pos, int health, int attack, int attackRadius,
+                     int goldCost, int ironCost, int woodCost) {
         this.key = key;
         this.name = name;
         this.pos = pos;
@@ -24,6 +25,9 @@ public class DefenseStructure extends Structure {
         this.controlRate = controlRate;
         this.attack = attack;
         this.attackRadius = attackRadius;
+        this.goldCost = goldCost;
+        this.ironCost = ironCost;
+        this.woodCost = woodCost;
     }
 
     @Override
@@ -31,6 +35,6 @@ public class DefenseStructure extends Structure {
         return new DefenseStructure(this.key, this.name, this.maxHealth,
                 this.visionRadius, this.controlRadius, this.controlStrength,
                 this.controlRate, this.pos, this.health, this.attack,
-                this.attackRadius);
+                this.attackRadius, this.goldCost, this.ironCost, this.woodCost);
     }
 }
