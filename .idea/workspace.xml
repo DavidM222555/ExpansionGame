@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Basic implementation of structure control loop setup.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Cleaned up game loop logic a bit and mostly isolated it to a per-player basis.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/control/StructureControlUpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/control/StructureControlUpdateCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689645632473</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Cleaned up game loop logic a bit and mostly isolated it to a per-player basis.">
+      <created>1689645804912</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1689645804912</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,7 +290,8 @@
     <MESSAGE value="Some organization done in GameView" />
     <MESSAGE value="Handled purchasing of units and structures." />
     <MESSAGE value="Basic implementation of structure control loop setup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic implementation of structure control loop setup." />
+    <MESSAGE value="Cleaned up game loop logic a bit and mostly isolated it to a per-player basis." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up game loop logic a bit and mostly isolated it to a per-player basis." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

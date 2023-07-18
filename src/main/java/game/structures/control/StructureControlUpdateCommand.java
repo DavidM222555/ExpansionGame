@@ -20,11 +20,11 @@ public class StructureControlUpdateCommand {
 
         var minX = Math.max((structurePos.getX() - currentRadius), 0);
         var maxX = Math.min((structurePos.getX() + currentRadius),
-                game.getGameBoardWidth());
+                game.getGameBoardWidth() - 1);
 
         var minY = Math.max((structurePos.getY() - currentRadius), 0);
         var maxY = Math.min((structurePos.getY() + currentRadius),
-                game.getGameBoardHeight());
+                game.getGameBoardHeight() - 1);
 
 
         for (int i = minX; i <= maxX; i++) {
