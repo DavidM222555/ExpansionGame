@@ -3,6 +3,7 @@ package game.gui;
 import game.GAME_CONSTANTS;
 import game.Game;
 import game.input.InputHandler;
+import game.structures.control.StructureControlUpdateCommand;
 import game.units.MoveUnitCommand;
 import game.world.World;
 import game.world.block.TileStore;
@@ -70,7 +71,7 @@ public class GameView extends BaseView {
                 Components.panel().withPreferredSize(unitListComponent.getSize()).build();
         sidePanel.addComponent(unitOrStructureListHolderComponent);
 
-        
+
         ComponentRenderer<Panel> gameRenderer =
                 GameComponents.newGameAreaComponentRenderer(game.getWorld(),
                         ProjectionMode.TOP_DOWN, TileStore.GROUND_TILE);
@@ -115,6 +116,12 @@ public class GameView extends BaseView {
     public void takeTurn() {
         for (var unit : this.game.getPlayer().unitManager.getUnits()) {
             MoveUnitCommand.executeWithStrategy(game, unit);
+        }
+
+        for (var structure :
+                this.game.getPlayer().structureManager.getStructures()) {
+            StructureControlUpdateCommand.execute(this.game, structure,
+                    this.game.getTeam());
         }
     }
 

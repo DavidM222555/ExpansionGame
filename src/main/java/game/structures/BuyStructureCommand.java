@@ -10,6 +10,7 @@ public class BuyStructureCommand {
                                                         GameBlock selectedGameBlock, Structure structure) {
         selectedGameBlock.setStructure(structure);
         handleStructureCost(structure, game.getPlayer());
+        selectedGameBlock.setTeam(game.getTeam());
     }
 
     public static void execute(KeyCode kc, Game game) {
@@ -22,6 +23,9 @@ public class BuyStructureCommand {
                 if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
                     setBlockAndStructureInteraction(game, selectedGameBlock,
                             structure);
+                    structure.setPos(selectedGameBlock.getPosition());
+                    structure.setTeam(game.getTeam());
+                    game.getPlayer().structureManager.addStructure(structure);
                 }
             }
         });
@@ -29,8 +33,7 @@ public class BuyStructureCommand {
 
     private static boolean haveEnoughForStructure(Structure structure,
                                                   Player player) {
-        System.out.println("Unit iron cost: " + structure.getIronCost() + " " +
-                "wood cost: " + structure.getWoodCost());
+        System.out.println("Unit iron cost: " + structure.getIronCost() + " " + "wood cost: " + structure.getWoodCost());
 
         return (structure.getGoldCost() <= player.getGoldAmount() && structure.getIronCost() <= player.getIronAmount() && structure.getWoodCost() <= player.getWoodAmount());
     }

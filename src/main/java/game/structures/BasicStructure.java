@@ -8,8 +8,8 @@ public class BasicStructure extends Structure {
     }
 
     BasicStructure(char key, String name, int maxHealth, int visionRadius,
-                   int controlRadius, int controlStrength, int controlRate,
-                   Position pos, int health, int goldCost, int ironCost,
+                   int maxControlRadius, int controlStrength, int controlRate
+            , Position pos, int health, int goldCost, int ironCost,
                    int woodCost) {
         this.key = key;
         this.name = name;
@@ -17,7 +17,7 @@ public class BasicStructure extends Structure {
         this.health = health;
         this.maxHealth = maxHealth;
         this.visionRadius = visionRadius;
-        this.controlRadius = controlRadius;
+        this.maxControlRadius = maxControlRadius;
         this.controlStrength = controlStrength;
         this.controlRate = controlRate;
         this.goldCost = goldCost;
@@ -27,8 +27,8 @@ public class BasicStructure extends Structure {
 
     BasicStructure copy() {
         return new BasicStructure(this.key, this.name, this.maxHealth,
-                this.visionRadius, this.controlRadius, this.controlStrength,
-                this.controlRate, this.pos, this.health, this.goldCost,
-                this.ironCost, this.woodCost);
+                this.visionRadius, this.maxControlRadius,
+                this.controlStrength, this.controlRate, this.pos, this.health
+                , this.goldCost, this.ironCost, this.woodCost);
     }
 }

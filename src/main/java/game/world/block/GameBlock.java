@@ -24,7 +24,7 @@ public class GameBlock extends BaseBlock<Tile> {
     Resource resource;
     Team team;
     Position pos;
-    
+
     // Represents whether a play is capable of going on this tile
     boolean playerMovable;
 
@@ -67,6 +67,7 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public void setTeam(Team team) {
         this.team = team;
+        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withBackgroundColor(team.getTeamColor()));
     }
 
     public Position getPosition() {

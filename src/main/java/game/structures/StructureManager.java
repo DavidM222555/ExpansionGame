@@ -14,6 +14,10 @@ public class StructureManager {
         this.structures.add(structure);
     }
 
+    public List<Structure> getStructures() {
+        return this.structures;
+    }
+
     public void removeStructure(Structure structure) {
         this.structures.remove(structure);
     }

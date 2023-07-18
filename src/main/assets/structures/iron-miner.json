@@ -3,7 +3,7 @@
   "name": "Iron Miner",
   "maxHealth": 100,
   "visionRadius": 20,
-  "controlRadius": 10,
+  "maxControlRadius": 10,
   "controlStrength": 1,
   "controlRate": 0.2,
   "resourceType": "iron",

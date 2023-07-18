@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import game.Game;
+import game.structures.control.StructureControlUpdateCommand;
+import game.teams.Team;
 import org.hexworks.zircon.api.data.Position;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -16,10 +19,9 @@ public abstract class Structure {
     String name;
     int maxHealth;
     int visionRadius;
-    int controlRadius;
+    int maxControlRadius;
     int controlStrength;
     int controlRate;
-
     int goldCost;
     int ironCost;
     int woodCost;
@@ -28,8 +30,13 @@ public abstract class Structure {
     Position pos;
     @JsonIgnore
     int health;
+    @JsonIgnore
+    int currentControlRadius;
+    @JsonIgnore
+    Team team;
 
     Structure() {
+        this.currentControlRadius = 0;
     }
 
     abstract Structure copy();
@@ -58,54 +65,6 @@ public abstract class Structure {
         this.maxHealth = maxHealth;
     }
 
-    public int getVisionRadius() {
-        return visionRadius;
-    }
-
-    public void setVisionRadius(int visionRadius) {
-        this.visionRadius = visionRadius;
-    }
-
-    public int getControlRadius() {
-        return controlRadius;
-    }
-
-    public void setControlRadius(int controlRadius) {
-        this.controlRadius = controlRadius;
-    }
-
-    public int getControlStrength() {
-        return controlStrength;
-    }
-
-    public void setControlStrength(int controlStrength) {
-        this.controlStrength = controlStrength;
-    }
-
-    public int getControlRate() {
-        return controlRate;
-    }
-
-    public void setControlRate(int controlRate) {
-        this.controlRate = controlRate;
-    }
-
-    public Position getPos() {
-        return pos;
-    }
-
-    public void setPos(Position pos) {
-        this.pos = pos;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getGoldCost() {
         return this.goldCost;
     }
@@ -128,5 +87,37 @@ public abstract class Structure {
 
     public void setWoodCost(int newWoodCost) {
         this.woodCost = newWoodCost;
+    }
+
+    public int getCurrentControlRadius() {
+        return this.currentControlRadius;
+    }
+
+    public void setCurrentControlRadius(int newCurrentControlRadius) {
+        this.currentControlRadius = newCurrentControlRadius;
+    }
+
+    public int getMaxControlRadius() {
+        return this.maxControlRadius;
+    }
+
+    public Position getPos() {
+        return this.pos;
+    }
+
+    public void setPos(Position pos) {
+        this.pos = pos;
+    }
+
+    public Team getTeam() {
+        return this.team;
+    }
+
+    public void setTeam(Team newTeam) {
+        this.team = newTeam;
+    }
+
+    public void updateControl(Game game) {
+        StructureControlUpdateCommand.execute(game, this, this.team);
     }
 }
