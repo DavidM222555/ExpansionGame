@@ -3,8 +3,6 @@ package game.gui;
 import game.GAME_CONSTANTS;
 import game.Game;
 import game.input.InputHandler;
-import game.structures.control.StructureControlUpdateCommand;
-import game.units.MoveUnitCommand;
 import game.world.World;
 import game.world.block.TileStore;
 import kotlin.Unit;
@@ -114,15 +112,7 @@ public class GameView extends BaseView {
     }
 
     public void takeTurn() {
-        for (var unit : this.game.getPlayer().unitManager.getUnits()) {
-            MoveUnitCommand.executeWithStrategy(game, unit);
-        }
-
-        for (var structure :
-                this.game.getPlayer().structureManager.getStructures()) {
-            StructureControlUpdateCommand.execute(this.game, structure,
-                    this.game.getTeam());
-        }
+        this.game.tick();
     }
 
     private void setupUnitAndStructureGroup(VBox buttonContainer) {

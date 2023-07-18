@@ -1,12 +1,14 @@
 package game.player;
 
-import game.common.Updatable;
+import game.Game;
 import game.resources.ResourceManager;
 import game.structures.StructureManager;
+import game.structures.control.StructureControlUpdateCommand;
+import game.units.MoveUnitCommand;
 import game.units.Unit;
 import game.units.UnitManager;
 
-public class Player implements Updatable {
+public class Player {
     public ResourceManager resourceManager;
     public UnitManager unitManager;
     public StructureManager structureManager;
@@ -43,6 +45,14 @@ public class Player implements Updatable {
      * Iterates over all structures and all units the player controls
      * and performs legal operations for each.
      */
-    public void update() {
+    public void update(Game game) {
+        for (var unit : this.unitManager.getUnits()) {
+            MoveUnitCommand.executeWithStrategy(game, unit);
+        }
+
+        for (var structure : this.structureManager.getStructures()) {
+            StructureControlUpdateCommand.execute(game, structure,
+                    game.getTeam());
+        }
     }
 }

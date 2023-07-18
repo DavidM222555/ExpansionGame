@@ -34,6 +34,10 @@ public class Game {
                 "/assets/structures");
     }
 
+    public void tick() {
+        this.player.update(this);
+    }
+
     public World getWorld() {
         return world;
     }
