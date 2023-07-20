@@ -63,6 +63,7 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public void setResource(Resource resource) {
         this.resource = resource;
+        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(resource.getResourceChar()));
     }
 
     public void setTeam(Team team) {
@@ -76,6 +77,10 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public boolean hasStructureOrUnitOnIt() {
         return structure != null || unit != null;
+    }
+
+    public boolean hasResourceOnIt() {
+        return this.resource != null;
     }
 
     public boolean isPlayerMovable() {

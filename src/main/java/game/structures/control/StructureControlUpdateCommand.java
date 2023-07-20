@@ -31,7 +31,10 @@ public class StructureControlUpdateCommand {
             for (int j = minY; j <= maxY; j++) {
                 GameBlock gameBlockAtPos =
                         game.getWorld().getBlock(Position.create(i, j));
-                gameBlockAtPos.setTeam(team);
+
+                if (gameBlockAtPos != null && gameBlockAtPos.isPlayerMovable()) {
+                    gameBlockAtPos.setTeam(team);
+                }
             }
         }
 

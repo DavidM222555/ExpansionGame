@@ -1,9 +1,14 @@
 package game.resources;
 
 public class Wood extends Resource {
+    static char resourceChar = '*';
+
     Wood(int startingAmount) {
         super(startingAmount);
-        this.name = "Wood";
     }
 
+    @Override
+    public char getResourceChar() {
+        return '*';
+    }
 }

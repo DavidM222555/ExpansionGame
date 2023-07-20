@@ -1,9 +1,15 @@
 package game.resources;
 
 public class Iron extends Resource {
+    static char resourceChar = '^';
+
     Iron(int startingAmount) {
         super(startingAmount);
-        this.name = "Iron";
     }
 
+    @Override
+    public char getResourceChar() {
+        return '^';
+    }
+    
 }

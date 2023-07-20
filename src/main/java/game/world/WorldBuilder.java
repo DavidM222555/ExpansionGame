@@ -1,6 +1,7 @@
 package game.world;
 
-import game.resources.Resource;
+import game.resources.ResourceStore;
+import game.resources.ResourceType;
 import game.world.block.GameBlock;
 import game.world.block.GameBlockFactory;
 import game.world.noise.CellularAutomaton;
@@ -48,7 +49,9 @@ public class WorldBuilder {
         return this;
     }
 
-    public WorldBuilder setResourcesOnTiles(Resource resource, int freq) {
+    
+    public WorldBuilder setResourceOnTiles(ResourceType resourceType,
+                                           int freq) {
         var posIterator = worldSize.fetchPositions().iterator();
         var noiseGrid =
                 CellularAutomaton.generateCellularAutomatonGrid(this.width,
@@ -58,7 +61,12 @@ public class WorldBuilder {
             var currentPos = posIterator.next();
 
             if (noiseGrid.get(currentPos.getY()).get(currentPos.getX())) {
-                // Pass
+                var currentBlock = blocks.get(currentPos);
+
+                if (!currentBlock.hasResourceOnIt() && currentBlock.isPlayerMovable()) {
+                    System.out.println("Setting resource");
+                    currentBlock.setResource(ResourceStore.getResource(resourceType, 100));
+                }
             }
         }
 

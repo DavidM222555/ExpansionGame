@@ -1,6 +1,7 @@
 package game;
 
 import game.player.Player;
+import game.resources.ResourceType;
 import game.structures.StructureStore;
 import game.teams.Team;
 import game.units.UnitStore;
@@ -26,7 +27,7 @@ public class Game {
 
     public Game() throws IOException {
         this.world = new WorldBuilder(Size3D.create(GAME_CONSTANTS.GAME_X,
-                GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
+                GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().setResourceOnTiles(ResourceType.GOLD, 65).build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
         this.player = new Player();
         this.team = new Team("Red team", TileColor.fromString("#B92743"));
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");

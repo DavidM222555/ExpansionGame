@@ -2,10 +2,9 @@ package game.resources;
 
 public abstract class Resource {
     int amount;
-    String name;
 
-    Resource(int startingAmount) {
-        this.amount = startingAmount;
+    Resource(int amount) {
+        this.amount = amount;
     }
 
     public void changeCurrentAmount(int dx) {
@@ -16,7 +15,6 @@ public abstract class Resource {
         return this.amount;
     }
 
-    public String getName() {
-        return this.name;
-    }
+    public abstract char getResourceChar();
+
 }
