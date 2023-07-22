@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Fixed board width and board height control command bug.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/ResourceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/resources/SetResourceOnTileCommand.java" afterDir="false" />
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Start of basic resource randomized placement.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/guard-tower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/wall.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/wall.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/wood-harvester.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/wood-harvester.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Gold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Iron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Iron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/ResourceAmount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Wood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Wood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/control/StructureControlUpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/control/StructureControlUpdateCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
     </list>
@@ -280,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689717802719</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Start of basic resource randomized placement.">
+      <created>1689817867699</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689817867699</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,7 +308,8 @@
     <MESSAGE value="Basic implementation of structure control loop setup." />
     <MESSAGE value="Cleaned up game loop logic a bit and mostly isolated it to a per-player basis." />
     <MESSAGE value="Fixed board width and board height control command bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed board width and board height control command bug." />
+    <MESSAGE value="Start of basic resource randomized placement." />
+    <option name="LAST_COMMIT_MESSAGE" value="Start of basic resource randomized placement." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

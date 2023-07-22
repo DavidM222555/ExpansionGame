@@ -59,6 +59,8 @@ public class GameBlock extends BaseBlock<Tile> {
     public void removeUnit() {
         this.unit = null;
         this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(' '));
+
+        this.refreshTileContent();
     }
 
     public void setResource(Resource resource) {
@@ -77,6 +79,28 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public boolean hasStructureOrUnitOnIt() {
         return structure != null || unit != null;
+    }
+
+    /**
+     * Refreshes the content of the tile to reflect structures, units,
+     * and resources currently on it.
+     */
+    public void refreshTileContent() {
+        // The way this is currently handled we have a precedence for each of
+        // resource, structure, and unit, where structures and units are
+        // guaranteed to never occur together on a given tile together.
+
+        if (this.resource != null) {
+            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(resource.getResourceChar()));
+        }
+
+        if (this.structure != null) {
+            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(structure.getKey()));
+        }
+
+        if (this.unit != null) {
+            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
+        }
     }
 
     public boolean hasResourceOnIt() {

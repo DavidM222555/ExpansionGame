@@ -49,9 +49,9 @@ public class WorldBuilder {
         return this;
     }
 
-    
-    public WorldBuilder setResourceOnTiles(ResourceType resourceType,
-                                           int freq) {
+
+    public WorldBuilder setResourcesOnTiles(ResourceType resourceType,
+                                            int freq) {
         var posIterator = worldSize.fetchPositions().iterator();
         var noiseGrid =
                 CellularAutomaton.generateCellularAutomatonGrid(this.width,
@@ -64,7 +64,6 @@ public class WorldBuilder {
                 var currentBlock = blocks.get(currentPos);
 
                 if (!currentBlock.hasResourceOnIt() && currentBlock.isPlayerMovable()) {
-                    System.out.println("Setting resource");
                     currentBlock.setResource(ResourceStore.getResource(resourceType, 100));
                 }
             }
