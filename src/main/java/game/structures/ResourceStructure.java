@@ -4,6 +4,7 @@ import org.hexworks.zircon.api.data.Position;
 
 public class ResourceStructure extends Structure {
     public String resourceType;
+    public int resourceMiningRate;
 
     ResourceStructure() {
         super();
@@ -12,8 +13,8 @@ public class ResourceStructure extends Structure {
     ResourceStructure(char key, String name, int maxHealth, int visionRadius,
                       int maxControlRadius, int controlStrength,
                       int controlRate, Position pos, int health,
-                      String resourceType, int goldCost, int ironCost,
-                      int woodCost) {
+                      String resourceType, int resourceMiningRate,
+                      int goldCost, int ironCost, int woodCost) {
         this.key = key;
         this.name = name;
         this.pos = pos;
@@ -24,6 +25,7 @@ public class ResourceStructure extends Structure {
         this.controlStrength = controlStrength;
         this.controlRate = controlRate;
         this.resourceType = resourceType;
+        this.resourceMiningRate = resourceMiningRate;
         this.goldCost = goldCost;
         this.ironCost = ironCost;
         this.woodCost = woodCost;
@@ -34,7 +36,7 @@ public class ResourceStructure extends Structure {
         return new ResourceStructure(this.key, this.name, this.maxHealth,
                 this.visionRadius, this.maxControlRadius,
                 this.controlStrength, this.controlRate, this.pos, this.health
-                , this.resourceType, this.goldCost, this.ironCost,
-                this.woodCost);
+                , this.resourceType, this.resourceMiningRate, this.goldCost,
+                this.ironCost, this.woodCost);
     }
 }

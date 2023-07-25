@@ -9,7 +9,7 @@ import org.hexworks.zircon.api.grid.TileGrid;
 import org.hexworks.zircon.api.resource.TilesetResource;
 
 public class GAME_CONSTANTS {
-    public final static int WINDOW_WIDTH = 80;
+    public final static int WINDOW_WIDTH = 85;
     public final static int WINDOW_HEIGHT = 45;
     public final static TilesetResource TILESET =
             CP437TilesetResources.rogueYun16x16();

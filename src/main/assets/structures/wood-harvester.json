@@ -7,6 +7,7 @@
   "controlStrength": 1,
   "controlRate": 0.2,
   "resourceType": "wood",
+  "resourceMiningRate": 1,
   "woodCost": 70,
   "ironCost": 10,
   "goldCost": 0

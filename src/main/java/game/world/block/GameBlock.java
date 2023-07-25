@@ -46,6 +46,10 @@ public class GameBlock extends BaseBlock<Tile> {
         this.playerMovable = playerMovable;
     }
 
+    public Structure getStructure() {
+        return this.structure;
+    }
+
     public void setStructure(Structure structure) {
         this.structure = structure;
         this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(structure.getKey()).withModifiers(Modifiers.underline()));
@@ -61,6 +65,10 @@ public class GameBlock extends BaseBlock<Tile> {
         this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(' '));
 
         this.refreshTileContent();
+    }
+
+    public Resource getResource() {
+        return this.resource;
     }
 
     public void setResource(Resource resource) {

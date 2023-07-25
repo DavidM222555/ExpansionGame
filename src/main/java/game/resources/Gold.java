@@ -9,4 +9,11 @@ public class Gold extends Resource {
     public char getResourceChar() {
         return '&';
     }
+
+    @Override
+    public ResourceType getResourceType() {
+        return ResourceType.GOLD;
+    }
+
+
 }

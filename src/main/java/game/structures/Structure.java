@@ -34,6 +34,7 @@ public abstract class Structure {
     int currentControlRadius;
     @JsonIgnore
     Team team;
+    
 
     Structure() {
         this.currentControlRadius = 0;

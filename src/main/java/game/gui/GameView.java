@@ -43,7 +43,6 @@ public class GameView extends BaseView {
     Panel unitOrStructureListHolderComponent;
     Component unitListComponent;
     Component structureListComponent;
-
     InputHandler inputHandler;
 
 

@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Start of basic resource randomized placement.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Handled bug that was causing units moving across tiles to remove resources below them.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/structures/HandleResourceMiningCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/gold-miner.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/iron-miner.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/assets/structures/wood-harvester.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/assets/structures/wood-harvester.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GAME_CONSTANTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GAME_CONSTANTS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/gui/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Gold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Gold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Iron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Iron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/resources/Wood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/resources/Wood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/ResourceStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/Structure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/block/GameBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689817867699</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Handled bug that was causing units moving across tiles to remove resources below them.">
+      <created>1689995584930</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1689995584930</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +327,8 @@
     <MESSAGE value="Cleaned up game loop logic a bit and mostly isolated it to a per-player basis." />
     <MESSAGE value="Fixed board width and board height control command bug." />
     <MESSAGE value="Start of basic resource randomized placement." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start of basic resource randomized placement." />
+    <MESSAGE value="Handled bug that was causing units moving across tiles to remove resources below them." />
+    <option name="LAST_COMMIT_MESSAGE" value="Handled bug that was causing units moving across tiles to remove resources below them." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,6 +2,8 @@ package game.player;
 
 import game.Game;
 import game.resources.ResourceManager;
+import game.structures.HandleResourceMiningCommand;
+import game.structures.ResourceStructure;
 import game.structures.StructureManager;
 import game.structures.control.StructureControlUpdateCommand;
 import game.units.MoveUnitCommand;
@@ -24,6 +26,7 @@ public class Player {
     public void updateResources(int goldDx, int ironDx, int woodDx) {
         this.resourceManager.changeResourceAmounts(goldDx, ironDx, woodDx);
     }
+
 
     public int getGoldAmount() {
         return this.resourceManager.getGoldAmount();
@@ -53,6 +56,13 @@ public class Player {
         for (var structure : this.structureManager.getStructures()) {
             StructureControlUpdateCommand.execute(game, structure,
                     game.getTeam());
+
+            if (structure instanceof ResourceStructure) {
+                var gameBlockAtPos =
+                        game.getBlockAtPosOrNull(structure.getPos());
+
+                gameBlockAtPos.ifPresent(gameBlock -> HandleResourceMiningCommand.execute(this, gameBlock));
+            }
         }
     }
 }

@@ -17,4 +17,6 @@ public abstract class Resource {
 
     public abstract char getResourceChar();
 
+    public abstract ResourceType getResourceType();
+
 }
