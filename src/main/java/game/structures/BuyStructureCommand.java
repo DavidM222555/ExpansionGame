@@ -20,7 +20,7 @@ public class BuyStructureCommand {
             if (haveEnoughForStructure(structure, game.getPlayer())) {
                 var selectedGameBlock = game.getSelectedGameBlock();
 
-                if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
+                if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable() && legalStructurePlacement(structure, selectedGameBlock)) {
                     setBlockAndStructureInteraction(game, selectedGameBlock,
                             structure);
                     structure.setPos(selectedGameBlock.getPosition());
@@ -33,13 +33,34 @@ public class BuyStructureCommand {
 
     private static boolean haveEnoughForStructure(Structure structure,
                                                   Player player) {
-        System.out.println("Unit iron cost: " + structure.getIronCost() + " " + "wood cost: " + structure.getWoodCost());
-
         return (structure.getGoldCost() <= player.getGoldAmount() && structure.getIronCost() <= player.getIronAmount() && structure.getWoodCost() <= player.getWoodAmount());
     }
 
     private static void handleStructureCost(Structure structure,
                                             Player player) {
         player.resourceManager.changeResourceAmounts(-1 * structure.getGoldCost(), -1 * structure.getIronCost(), -1 * structure.getWoodCost());
+    }
+    
+    /**
+     * @param structure Structure to test
+     * @param gameBlock Block to possibly place structure on
+     * @return Whether it is valid for a structure to be placed on a given tile.
+     * Currently, it is mainly used for testing whether a resource miner is
+     * on a tile with a resource on it and if so that that resource is
+     * of the correct type.
+     */
+    private static boolean legalStructurePlacement(Structure structure,
+                                                   GameBlock gameBlock) {
+
+        if (structure instanceof ResourceStructure) {
+            if (!gameBlock.hasResourceOnIt()) {
+                return false;
+            }
+
+            return ((ResourceStructure) structure).resourceType.equals(gameBlock.getResource().getResourceType().toString());
+        }
+
+        return true;
+
     }
 }

@@ -49,9 +49,6 @@ public class Player {
      * and performs legal operations for each.
      */
     public void update(Game game) {
-        // TODO: Implement an update command on unit and structure that can
-        //  be called instead of putting conditional logic in here
-
         for (var unit : this.unitManager.getUnits()) {
             MoveUnitCommand.executeWithStrategy(game, unit);
         }

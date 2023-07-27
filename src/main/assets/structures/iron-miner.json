@@ -6,7 +6,7 @@
   "maxControlRadius": 3,
   "controlStrength": 1,
   "controlRate": 0.2,
-  "resourceType": "iron",
+  "resourceType": "IRON",
   "resourceMiningRate": 1,
   "woodCost": 70,
   "ironCost": 10,
