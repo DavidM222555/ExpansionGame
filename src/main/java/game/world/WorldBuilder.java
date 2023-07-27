@@ -2,6 +2,7 @@ package game.world;
 
 import game.resources.ResourceStore;
 import game.resources.ResourceType;
+import game.resources.SetResourceOnTileCommand;
 import game.world.block.GameBlock;
 import game.world.block.GameBlockFactory;
 import game.world.noise.CellularAutomaton;
@@ -63,9 +64,8 @@ public class WorldBuilder {
             if (noiseGrid.get(currentPos.getY()).get(currentPos.getX())) {
                 var currentBlock = blocks.get(currentPos);
 
-                if (!currentBlock.hasResourceOnIt() && currentBlock.isPlayerMovable()) {
-                    currentBlock.setResource(ResourceStore.getResource(resourceType, 100));
-                }
+                SetResourceOnTileCommand.execute(currentBlock,
+                        ResourceStore.getResource(resourceType, 100));
             }
         }
 
