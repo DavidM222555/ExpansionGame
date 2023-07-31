@@ -2,7 +2,7 @@
   "key": "H",
   "name": "Guard Tower",
   "maxHealth": 100,
-  "visionRadius": 20,
+  "maxVisionRadius": 20,
   "maxControlRadius": 3,
   "controlStrength": 1,
   "controlRate": 1,

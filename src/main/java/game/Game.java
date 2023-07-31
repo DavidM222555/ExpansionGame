@@ -21,17 +21,33 @@ public class Game {
     private final World world;
     private final Player player;
     private final Team team;
-
     private GameBlock selectedGameBlock;
 
     public Game() throws IOException {
-        this.world = new WorldBuilder(Size3D.create(GAME_CONSTANTS.GAME_X,
-                GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().setResourcesOnTiles(ResourceType.GOLD, 65).build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
+        this.world = buildWorld();
         this.player = new Player();
         this.team = new Team("Red team", TileColor.fromString("#B92743"));
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
         this.structureStore = StructureStore.fromJSONDirectory("src/main" +
                 "/assets/structures");
+
+        // Here for now to give the user some starting vision. Eventually,
+        // once we randomize starting positions we will do this around the
+        // player's position.
+        for (int i = 0; i < 40; i++) {
+            for (int j = 0; j < 40; j++) {
+                this.getBlockAtPosOrNull(Position.create(i, j)).ifPresent((gameBlock -> {
+                    gameBlock.setVisible(true);
+                    gameBlock.refreshTileContent();
+                }));
+            }
+        }
+    }
+
+    public World buildWorld() {
+        return new WorldBuilder(Size3D.create(GAME_CONSTANTS.GAME_X,
+                GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().setResourcesOnTiles(ResourceType.GOLD, 65).refreshContentOfAllTiles().build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
+
     }
 
     public void tick() {

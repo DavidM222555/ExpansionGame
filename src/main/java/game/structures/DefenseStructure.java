@@ -10,17 +10,17 @@ public class DefenseStructure extends Structure {
         super();
     }
 
-    DefenseStructure(char key, String name, int maxHealth, int visionRadius,
-                     int maxControlRadius, int controlStrength,
-                     int controlRate, Position pos, int health, int attack,
-                     int attackRadius, int goldCost, int ironCost,
-                     int woodCost) {
+    DefenseStructure(char key, String name, int maxHealth,
+                     int maxVisionRadius, int maxControlRadius,
+                     int controlStrength, int controlRate, Position pos,
+                     int health, int attack, int attackRadius, int goldCost,
+                     int ironCost, int woodCost) {
         this.key = key;
         this.name = name;
         this.pos = pos;
         this.health = health;
         this.maxHealth = maxHealth;
-        this.visionRadius = visionRadius;
+        this.maxVisionRadius = maxVisionRadius;
         this.maxControlRadius = maxControlRadius;
         this.controlStrength = controlStrength;
         this.controlRate = controlRate;
@@ -34,7 +34,7 @@ public class DefenseStructure extends Structure {
     @Override
     DefenseStructure copy() {
         return new DefenseStructure(this.key, this.name, this.maxHealth,
-                this.visionRadius, this.maxControlRadius,
+                this.maxVisionRadius, this.maxControlRadius,
                 this.controlStrength, this.controlRate, this.pos, this.health
                 , this.attack, this.attackRadius, this.goldCost,
                 this.ironCost, this.woodCost);

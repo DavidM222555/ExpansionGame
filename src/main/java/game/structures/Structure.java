@@ -18,7 +18,7 @@ public abstract class Structure {
     char key;
     String name;
     int maxHealth;
-    int visionRadius;
+    int maxVisionRadius;
     int maxControlRadius;
     int controlStrength;
     int controlRate;
@@ -33,8 +33,10 @@ public abstract class Structure {
     @JsonIgnore
     int currentControlRadius;
     @JsonIgnore
+    int currentVisionRadius;
+    @JsonIgnore
     Team team;
-    
+
 
     Structure() {
         this.currentControlRadius = 0;
@@ -98,8 +100,20 @@ public abstract class Structure {
         this.currentControlRadius = newCurrentControlRadius;
     }
 
+    public int getCurrentVisionRadius() {
+        return this.currentVisionRadius;
+    }
+
+    public void setCurrentVisionRadius(int newRadius) {
+        this.currentVisionRadius = newRadius;
+    }
+
     public int getMaxControlRadius() {
         return this.maxControlRadius;
+    }
+
+    public int getMaxVisionRadius() {
+        return this.maxVisionRadius;
     }
 
     public Position getPos() {

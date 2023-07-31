@@ -2,7 +2,7 @@
   "key": "G",
   "name": "Gold Miner",
   "maxHealth": 100,
-  "visionRadius": 20,
+  "maxVisionRadius": 20,
   "maxControlRadius": 3,
   "controlStrength": 1,
   "controlRate": 0.2,

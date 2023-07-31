@@ -5,7 +5,7 @@ import game.structures.Structure;
 import game.teams.Team;
 import game.units.Unit;
 import kotlin.Pair;
-import org.hexworks.zircon.api.Modifiers;
+import org.hexworks.zircon.api.color.TileColor;
 import org.hexworks.zircon.api.data.BlockTileType;
 import org.hexworks.zircon.api.data.Position;
 import org.hexworks.zircon.api.data.Tile;
@@ -29,6 +29,8 @@ public class GameBlock extends BaseBlock<Tile> {
     boolean playerMovable;
     boolean isVisible;
 
+    Tile tile;
+
     public GameBlock() {
         super(EMPTY_TILE, persistentMapOf(new Pair<>(BlockTileType.CONTENT,
                 GROUND_TILE)));
@@ -46,6 +48,12 @@ public class GameBlock extends BaseBlock<Tile> {
 
         this.pos = pos;
         this.playerMovable = playerMovable;
+        this.isVisible = false;
+        this.tile = content;
+    }
+
+    public Tile getTile() {
+        return this.tile;
     }
 
     public Structure getStructure() {
@@ -54,12 +62,12 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public void setStructure(Structure structure) {
         this.structure = structure;
-        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(structure.getKey()).withModifiers(Modifiers.underline()));
+        this.refreshTileContent();
     }
 
     public void setUnit(Unit unit) {
         this.unit = unit;
-        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
+        this.refreshTileContent();
     }
 
     public void removeUnit() {
@@ -75,17 +83,22 @@ public class GameBlock extends BaseBlock<Tile> {
 
     public void setResource(Resource resource) {
         this.resource = resource;
-        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(resource.getResourceChar()));
+        this.refreshTileContent();
     }
 
     public void setTeam(Team team) {
         this.team = team;
-        this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withBackgroundColor(team.getTeamColor()));
+        this.refreshTileContent();
     }
 
     public Position getPosition() {
         return this.pos;
     }
+
+    public void setVisible(boolean visible) {
+        this.isVisible = visible;
+    }
+
 
     public boolean doesntHaveStructureOrUnitOnIt() {
         return structure == null && unit == null;
@@ -93,13 +106,29 @@ public class GameBlock extends BaseBlock<Tile> {
 
     /**
      * Refreshes the content of the tile to reflect structures, units,
-     * and resources currently on it.
+     * and resources currently on it. Also, currently has some functionality
+     * to handle the visibility of the tile.
      */
     public void refreshTileContent() {
+        // Save the modifiers to add back at the end
+        var currentModifiers = this.getContent().getModifiers();
+
+        // Begin by handling current visibility of tiles relative to the player
+        if (!this.isVisible) {
+            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withForegroundColor(TileColor.fromString("#000000")).withBackgroundColor(TileColor.fromString("#000000")));
+            // If the tile is not visible then we can ignore everything else
+            return;
+        } else {
+            this.setContent(this.getTile());
+        }
+
+        if (this.team != null) {
+            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withBackgroundColor(this.team.getTeamColor()));
+        }
+
         // The way this is currently handled we have a precedence for each of
         // resource, structure, and unit, where structures and units are
         // guaranteed to never occur together on a given tile together.
-
         if (this.resource != null) {
             this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(resource.getResourceChar()));
         }
@@ -111,6 +140,9 @@ public class GameBlock extends BaseBlock<Tile> {
         if (this.unit != null) {
             this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
         }
+
+        // Restore the previous modifiers that were on the tile
+        this.setContent(this.getContent().withModifiers(currentModifiers));
     }
 
     public boolean hasResourceOnIt() {

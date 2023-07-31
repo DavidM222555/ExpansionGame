@@ -1,16 +1,17 @@
-package game.structures.control;
+package game.structures.vision;
 
 import game.Game;
 import game.structures.Structure;
-import game.teams.Team;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.data.Position;
 
-public class StructureControlUpdateCommand {
-    public static void execute(Game game, Structure structure, Team team) {
-        var currentRadius = structure.getCurrentControlRadius() + 1;
+public class StructureVisionUpdateCommand {
+    public static void execute(Game game, Structure structure) {
+        var currentRadius = structure.getCurrentVisionRadius() + 1;
+        System.out.println("Current vision radius: " + currentRadius);
+        System.out.println("Max vision radius: " + structure.getMaxVisionRadius());
 
-        if (currentRadius >= structure.getMaxControlRadius()) {
+        if (currentRadius >= structure.getMaxVisionRadius()) {
             return;
         }
 
@@ -30,12 +31,14 @@ public class StructureControlUpdateCommand {
                 GameBlock gameBlockAtPos =
                         game.getWorld().getBlock(Position.create(i, j));
 
-                if (gameBlockAtPos != null && gameBlockAtPos.isPlayerMovable()) {
-                    gameBlockAtPos.setTeam(team);
+                if (gameBlockAtPos != null) {
+                    gameBlockAtPos.setVisible(true);
+                    gameBlockAtPos.refreshTileContent();
                 }
             }
         }
 
-        structure.setCurrentControlRadius(currentRadius);
+        System.out.println("Down here ");
+        structure.setCurrentVisionRadius(currentRadius);
     }
 }

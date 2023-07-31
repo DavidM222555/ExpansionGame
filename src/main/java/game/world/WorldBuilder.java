@@ -72,6 +72,19 @@ public class WorldBuilder {
         return this;
     }
 
+    public WorldBuilder refreshContentOfAllTiles() {
+        var posIterator = worldSize.fetchPositions().iterator();
+
+        while (posIterator.hasNext()) {
+            var currentPos = posIterator.next();
+
+            var currentBlock = blocks.get(currentPos);
+            currentBlock.refreshTileContent();
+        }
+
+        return this;
+    }
+
     public int getWidth() {
         return width;
     }

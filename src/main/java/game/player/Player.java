@@ -6,6 +6,7 @@ import game.structures.HandleResourceMiningCommand;
 import game.structures.ResourceStructure;
 import game.structures.StructureManager;
 import game.structures.control.StructureControlUpdateCommand;
+import game.structures.vision.StructureVisionUpdateCommand;
 import game.units.MoveUnitCommand;
 import game.units.Unit;
 import game.units.UnitManager;
@@ -56,6 +57,8 @@ public class Player {
         for (var structure : this.structureManager.getStructures()) {
             StructureControlUpdateCommand.execute(game, structure,
                     game.getTeam());
+
+            StructureVisionUpdateCommand.execute(game, structure);
 
             if (structure instanceof ResourceStructure) {
                 var gameBlockAtPos =
