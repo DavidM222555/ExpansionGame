@@ -27,6 +27,7 @@ public class GameBlock extends BaseBlock<Tile> {
 
     // Represents whether a play is capable of going on this tile
     boolean playerMovable;
+    boolean isVisible;
 
     public GameBlock() {
         super(EMPTY_TILE, persistentMapOf(new Pair<>(BlockTileType.CONTENT,
@@ -36,6 +37,7 @@ public class GameBlock extends BaseBlock<Tile> {
         this.unit = null;
         this.resource = null;
         this.pos = null;
+        this.isVisible = false;
     }
 
     public GameBlock(Tile content, Position pos, boolean playerMovable) {
@@ -85,8 +87,8 @@ public class GameBlock extends BaseBlock<Tile> {
         return this.pos;
     }
 
-    public boolean hasStructureOrUnitOnIt() {
-        return structure != null || unit != null;
+    public boolean doesntHaveStructureOrUnitOnIt() {
+        return structure == null && unit == null;
     }
 
     /**

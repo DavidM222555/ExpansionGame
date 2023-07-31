@@ -20,7 +20,7 @@ public class BuyStructureCommand {
             if (haveEnoughForStructure(structure, game.getPlayer())) {
                 var selectedGameBlock = game.getSelectedGameBlock();
 
-                if (selectedGameBlock != null && !selectedGameBlock.hasStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable() && legalStructurePlacement(structure, selectedGameBlock)) {
+                if (selectedGameBlock != null && selectedGameBlock.doesntHaveStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable() && legalStructurePlacement(structure, selectedGameBlock)) {
                     setBlockAndStructureInteraction(game, selectedGameBlock,
                             structure);
                     structure.setPos(selectedGameBlock.getPosition());
@@ -40,7 +40,7 @@ public class BuyStructureCommand {
                                             Player player) {
         player.resourceManager.changeResourceAmounts(-1 * structure.getGoldCost(), -1 * structure.getIronCost(), -1 * structure.getWoodCost());
     }
-    
+
     /**
      * @param structure Structure to test
      * @param gameBlock Block to possibly place structure on
