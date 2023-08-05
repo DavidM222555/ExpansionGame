@@ -27,6 +27,9 @@ public class GameBlock extends BaseBlock<Tile> {
 
     // Represents whether a play is capable of going on this tile
     boolean playerMovable;
+
+    // TODO: Eventually this logic should be handled on a per-player basis but
+    // for now we are treating it as only a matter for the actual player.
     boolean isVisible;
 
     Tile tile;
@@ -39,7 +42,7 @@ public class GameBlock extends BaseBlock<Tile> {
         this.unit = null;
         this.resource = null;
         this.pos = null;
-        this.isVisible = false;
+        this.isVisible = true;
     }
 
     public GameBlock(Tile content, Position pos, boolean playerMovable) {
@@ -48,7 +51,7 @@ public class GameBlock extends BaseBlock<Tile> {
 
         this.pos = pos;
         this.playerMovable = playerMovable;
-        this.isVisible = false;
+        this.isVisible = true;
         this.tile = content;
     }
 
@@ -138,7 +141,11 @@ public class GameBlock extends BaseBlock<Tile> {
         }
 
         if (this.unit != null) {
-            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
+            if (this.team == null) {
+                this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()).withForegroundColor(unit.getTeamColor()));
+            } else {
+                this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(unit.getKey()));
+            }
         }
 
         // Restore the previous modifiers that were on the tile

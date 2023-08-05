@@ -1,9 +1,11 @@
 package game.units;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import game.teams.Team;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.Components;
 import org.hexworks.zircon.api.builder.component.LabelBuilder;
+import org.hexworks.zircon.api.color.TileColor;
 import org.hexworks.zircon.api.component.Component;
 import org.hexworks.zircon.api.data.Position;
 
@@ -15,6 +17,9 @@ public class Unit {
     Position pos;
     @JsonIgnore
     GameBlock blockUnitIsOn;
+
+    @JsonIgnore
+    Team team;
 
     private char key;
     private String name;
@@ -31,7 +36,7 @@ public class Unit {
 
     Unit(int currentHealth, Position pos, GameBlock blockUnitIsOn, char key,
          String name, int maxHealth, int attack, int defense, int goldCost,
-         int ironCost, int woodCost) {
+         int ironCost, int woodCost, Team team) {
         this.currentHealth = currentHealth;
         this.pos = pos;
         this.blockUnitIsOn = blockUnitIsOn;
@@ -43,6 +48,7 @@ public class Unit {
         this.goldCost = goldCost;
         this.ironCost = ironCost;
         this.woodCost = woodCost;
+        this.team = team;
     }
 
     // Default constructor that is needed by Jackson JSON parser
@@ -133,10 +139,24 @@ public class Unit {
         this.blockUnitIsOn = blockUnitIsOn;
     }
 
+    public Team getTeam() {
+        return this.team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public TileColor getTeamColor() {
+        return this.team.getTeamColor();
+    }
+
+
     public Unit copy() {
         return new Unit(this.currentHealth, this.pos, this.blockUnitIsOn,
                 this.key, this.name, this.maxHealth, this.attack,
-                this.defense, this.goldCost, this.ironCost, this.woodCost);
+                this.defense, this.goldCost, this.ironCost, this.woodCost,
+                this.team);
     }
 
     public Component toComponent(int width) {

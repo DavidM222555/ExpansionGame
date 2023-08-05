@@ -19,8 +19,7 @@ public class BuyUnitCommand {
                 if (selectedGameBlock != null && selectedGameBlock.doesntHaveStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
                     setBlockAndUnitInteraction(game, selectedGameBlock, unit);
                 } else {
-                    SendTextToLogCommand.execute("CAN'T PLACE UNIT ON THIS " +
-                            "TILE!");
+                    SendTextToLogCommand.execute("CAN'T PLACE UNIT ON THIS " + "TILE!");
                 }
             } else {
                 SendTextToLogCommand.execute("YOU DON'T HAVE ENOUGH " +
@@ -32,6 +31,7 @@ public class BuyUnitCommand {
 
     private static void setBlockAndUnitInteraction(Game game,
                                                    GameBlock selectedGameBlock, Unit unit) {
+        unit.setTeam(game.getTeam());
         MoveUnitCommand.executeWithKnownBlock(unit, selectedGameBlock);
         game.getPlayer().addUnit(unit);
         handleUnitCost(unit, game.getPlayer());
