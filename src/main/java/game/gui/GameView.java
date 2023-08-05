@@ -23,23 +23,18 @@ import static game.GAME_CONSTANTS.*;
 import static org.hexworks.zircon.api.ComponentDecorations.box;
 
 public class GameView extends BaseView {
+    public static final LogArea LOG_AREA =
+            Components.logArea().withPreferredSize(GAME_CONSTANTS.LOGAREA_WIDTH, GAME_CONSTANTS.LOG_AREA_HEIGHT).withDecorations(box(BoxType.DOUBLE, "LOG")).build();
     final Game game = new Game();
-
     VBox mainContainer =
             Components.vbox().withPreferredSize(this.getScreen().getSize()).build();
     HBox gameAndSidePanelContainer =
             Components.hbox().withPreferredSize(this.getScreen().getSize()).build();
-
     VBox sidePanel =
             Components.vbox().withPreferredSize(GAME_CONSTANTS.SIDEBAR_WIDTH,
                     GAME_CONSTANTS.SIDEBAR_HEIGHT).withDecorations(box()).build();
-
     VBox gameAndLogArea =
             Components.vbox().withPreferredSize(GAME_CONSTANTS.MAIN_AREA_WIDTH, GAME_CONSTANTS.MAIN_AREA_HEIGHT).build();
-
-    LogArea logArea =
-            Components.logArea().withPreferredSize(GAME_CONSTANTS.LOGAREA_WIDTH, GAME_CONSTANTS.LOG_AREA_HEIGHT).withDecorations(box(BoxType.DOUBLE, "LOG")).build();
-
     Panel unitOrStructureListHolderComponent;
     Component unitListComponent;
     Component structureListComponent;
@@ -77,7 +72,7 @@ public class GameView extends BaseView {
                 GAME_AREA_HEIGHT).withComponentRenderer(gameRenderer).build();
 
         gameAndLogArea.addComponent(gamePanel);
-        gameAndLogArea.addComponent(logArea);
+        gameAndLogArea.addComponent(LOG_AREA);
 
         gameAndSidePanelContainer.addComponent(gameAndLogArea);
         gameAndSidePanelContainer.addComponent(sidePanel);

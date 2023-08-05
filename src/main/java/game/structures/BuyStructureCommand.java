@@ -1,6 +1,7 @@
 package game.structures;
 
 import game.Game;
+import game.gui.SendTextToLogCommand;
 import game.player.Player;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.uievent.KeyCode;
@@ -26,7 +27,13 @@ public class BuyStructureCommand {
                     structure.setPos(selectedGameBlock.getPosition());
                     structure.setTeam(game.getTeam());
                     game.getPlayer().structureManager.addStructure(structure);
+                } else {
+                    SendTextToLogCommand.execute("CAN'T PLACE STRUCTURE ON " +
+                            "THIS TILE!");
                 }
+            } else {
+                SendTextToLogCommand.execute("YOU DON'T HAVE ENOUGH " +
+                        "RESOURCES" + " FOR THIS STRUCTURE! ");
             }
         });
     }

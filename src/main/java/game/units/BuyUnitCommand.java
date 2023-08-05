@@ -1,6 +1,7 @@
 package game.units;
 
 import game.Game;
+import game.gui.SendTextToLogCommand;
 import game.player.Player;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.uievent.KeyCode;
@@ -17,7 +18,13 @@ public class BuyUnitCommand {
                 // have a structure or unit on it already.
                 if (selectedGameBlock != null && selectedGameBlock.doesntHaveStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
                     setBlockAndUnitInteraction(game, selectedGameBlock, unit);
+                } else {
+                    SendTextToLogCommand.execute("CAN'T PLACE UNIT ON THIS " +
+                            "TILE!");
                 }
+            } else {
+                SendTextToLogCommand.execute("YOU DON'T HAVE ENOUGH " +
+                        "RESOURCES" + " FOR THIS UNIT! ");
             }
 
         });
