@@ -30,6 +30,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <dependency>
+            <groupId>de.articdive</groupId>
+            <artifactId>jnoise-pipeline</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>

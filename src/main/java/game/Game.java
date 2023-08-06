@@ -31,18 +31,6 @@ public class Game {
         this.structureStore = StructureStore.fromJSONDirectory("src/main" +
                 "/assets/structures");
 
-        // Here for now to give the user some starting vision. Eventually,
-        // once we randomize starting positions we will do this around the
-        // player's position.
-//        for (int i = 0; i < 40; i++) {
-//            for (int j = 0; j < 40; j++) {
-//                this.getBlockAtPosOrNull(Position.create(i, j)).ifPresent(
-//                (gameBlock -> {
-//                    gameBlock.setVisible(true);
-//                    gameBlock.refreshTileContent();
-//                }));
-//            }
-//        }
     }
 
     public World buildWorld() {
