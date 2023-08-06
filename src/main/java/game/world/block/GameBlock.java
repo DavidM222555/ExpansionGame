@@ -133,7 +133,7 @@ public class GameBlock extends BaseBlock<Tile> {
         // resource, structure, and unit, where structures and units are
         // guaranteed to never occur together on a given tile together.
         if (this.resource != null) {
-            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(resource.getResourceChar()));
+            this.setContent(Objects.requireNonNull(this.getContent().asCharacterTileOrNull()).withCharacter(resource.getResourceChar()).withForegroundColor(resource.getResourceColor()));
         }
 
         if (this.structure != null) {
