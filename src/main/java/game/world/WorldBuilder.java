@@ -22,17 +22,12 @@ public class WorldBuilder {
             JNoise.newBuilder().worley(WorleyNoiseGenerator.newBuilder().setSeed(200).build()).scale(1 / 16.0).clamp(0.0, 1.0).build();
 
 
-    private final int width;
-    private final int height;
     private final Size3D worldSize;
     private final Map<Position3D, GameBlock> blocks = new HashMap<>();
 
 
     public WorldBuilder(Size3D worldSize) {
         this.worldSize = worldSize;
-
-        width = worldSize.getXLength();
-        height = worldSize.getYLength();
     }
 
     public World build(Size3D visibleSize) {
@@ -93,13 +88,5 @@ public class WorldBuilder {
         }
 
         return this;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 }
