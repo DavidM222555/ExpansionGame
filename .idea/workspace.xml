@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Set up noise generation for each of the three resources.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/BuyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/BuyCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/input/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/structures/BuyStructureCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/structures/BuyStructureCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/BuyUnitCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691365553770</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Set up noise generation for each of the three resources.">
+      <created>1691367386605</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1691367386605</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,7 +382,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Have basics of structure store setup." />
     <MESSAGE value="Setting up structure and unit buying interactions." />
     <MESSAGE value="Start of resource randomized placement." />
     <MESSAGE value="Fixed bug where selecting a tile would remove modifiers already on it." />
@@ -396,7 +406,8 @@
     <MESSAGE value="Added JNoise as a dependency." />
     <MESSAGE value="Start of reworking old noise generation into using JNoise." />
     <MESSAGE value="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme." />
+    <MESSAGE value="Set up noise generation for each of the three resources." />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up noise generation for each of the three resources." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

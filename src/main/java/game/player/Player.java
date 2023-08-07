@@ -7,6 +7,7 @@ import game.structures.ResourceStructure;
 import game.structures.StructureManager;
 import game.structures.control.StructureControlUpdateCommand;
 import game.structures.vision.StructureVisionUpdateCommand;
+import game.teams.Team;
 import game.units.MoveUnitCommand;
 import game.units.Unit;
 import game.units.UnitManager;
@@ -16,10 +17,13 @@ public class Player {
     public UnitManager unitManager;
     public StructureManager structureManager;
 
-    public Player() {
+    public Team team;
+
+    public Player(Team team) {
         this.resourceManager = new ResourceManager();
         this.unitManager = new UnitManager();
         this.structureManager = new StructureManager();
+        this.team = team;
 
         this.resourceManager.changeResourceAmounts(500, 500, 500);
     }
@@ -27,7 +31,6 @@ public class Player {
     public void updateResources(int goldDx, int ironDx, int woodDx) {
         this.resourceManager.changeResourceAmounts(goldDx, ironDx, woodDx);
     }
-
 
     public int getGoldAmount() {
         return this.resourceManager.getGoldAmount();
@@ -45,6 +48,10 @@ public class Player {
         this.unitManager.addUnit(unit);
     }
 
+    public Team getTeam() {
+        return this.team;
+    }
+
     /**
      * Iterates over all structures and all units the player controls
      * and performs legal operations for each.
@@ -55,8 +62,7 @@ public class Player {
         }
 
         for (var structure : this.structureManager.getStructures()) {
-            StructureControlUpdateCommand.execute(game, structure,
-                    game.getTeam());
+            StructureControlUpdateCommand.execute(game, structure, team);
 
             StructureVisionUpdateCommand.execute(game, structure);
 

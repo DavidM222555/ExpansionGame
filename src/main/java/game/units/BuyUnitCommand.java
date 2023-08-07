@@ -7,17 +7,17 @@ import game.world.block.GameBlock;
 import org.hexworks.zircon.api.uievent.KeyCode;
 
 public class BuyUnitCommand {
-    public static void execute(KeyCode kc, Game game) {
+    public static void execute(KeyCode kc, Game game, Player player) {
         var possibleUnit = UnitStore.getUnitFromKeyCode(kc);
 
         possibleUnit.ifPresent(unit -> {
-            if (haveEnoughForUnit(unit, game.getPlayer())) {
+            if (haveEnoughForUnit(unit, player)) {
                 var selectedGameBlock = game.getSelectedGameBlock();
 
                 // Make sure a block is selected and that it currently doesn't
                 // have a structure or unit on it already.
                 if (selectedGameBlock != null && selectedGameBlock.doesntHaveStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable()) {
-                    setBlockAndUnitInteraction(game, selectedGameBlock, unit);
+                    setBlockAndUnitInteraction(player, selectedGameBlock, unit);
                 } else {
                     SendTextToLogCommand.execute("CAN'T PLACE UNIT ON THIS " + "TILE!");
                 }
@@ -29,12 +29,12 @@ public class BuyUnitCommand {
         });
     }
 
-    private static void setBlockAndUnitInteraction(Game game,
+    private static void setBlockAndUnitInteraction(Player player,
                                                    GameBlock selectedGameBlock, Unit unit) {
-        unit.setTeam(game.getTeam());
+        unit.setTeam(player.getTeam());
         MoveUnitCommand.executeWithKnownBlock(unit, selectedGameBlock);
-        game.getPlayer().addUnit(unit);
-        handleUnitCost(unit, game.getPlayer());
+        player.addUnit(unit);
+        handleUnitCost(unit, player);
     }
 
     private static boolean haveEnoughForUnit(Unit unit, Player player) {

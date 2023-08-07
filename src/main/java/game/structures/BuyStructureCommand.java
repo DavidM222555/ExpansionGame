@@ -7,14 +7,14 @@ import game.world.block.GameBlock;
 import org.hexworks.zircon.api.uievent.KeyCode;
 
 public class BuyStructureCommand {
-    private static void setBlockAndStructureInteraction(Game game,
+    private static void setBlockAndStructureInteraction(Player player,
                                                         GameBlock selectedGameBlock, Structure structure) {
         selectedGameBlock.setStructure(structure);
-        handleStructureCost(structure, game.getPlayer());
-        selectedGameBlock.setTeam(game.getTeam());
+        handleStructureCost(structure, player);
+        selectedGameBlock.setTeam(player.getTeam());
     }
 
-    public static void execute(KeyCode kc, Game game) {
+    public static void execute(KeyCode kc, Game game, Player player) {
         var possibleStructure = StructureStore.getStructureFromKey(kc);
 
         possibleStructure.ifPresent(structure -> {
@@ -22,14 +22,13 @@ public class BuyStructureCommand {
                 var selectedGameBlock = game.getSelectedGameBlock();
 
                 if (selectedGameBlock != null && selectedGameBlock.doesntHaveStructureOrUnitOnIt() && selectedGameBlock.isPlayerMovable() && legalStructurePlacement(structure, selectedGameBlock)) {
-                    setBlockAndStructureInteraction(game, selectedGameBlock,
-                            structure);
+                    setBlockAndStructureInteraction(player, selectedGameBlock
+                            , structure);
                     structure.setPos(selectedGameBlock.getPosition());
-                    structure.setTeam(game.getTeam());
-                    game.getPlayer().structureManager.addStructure(structure);
+                    structure.setTeam(player.getTeam());
+                    player.structureManager.addStructure(structure);
                 } else {
-                    SendTextToLogCommand.execute("CAN'T PLACE STRUCTURE ON " +
-                            "THIS TILE!");
+                    SendTextToLogCommand.execute("CAN'T PLACE STRUCTURE ON " + "THIS TILE!");
                 }
             } else {
                 SendTextToLogCommand.execute("YOU DON'T HAVE ENOUGH " +

@@ -19,13 +19,12 @@ public class Game {
     private final StructureStore structureStore;
     private final World world;
     private final Player player;
-    private final Team team;
     private GameBlock selectedGameBlock;
 
     public Game() throws IOException {
         this.world = buildWorld();
-        this.player = new Player();
-        this.team = new Team("Red team", TileColor.fromString("#B92743"));
+        this.player = new Player(new Team("Red team", TileColor.fromString(
+                "#B92743")));
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
         this.structureStore = StructureStore.fromJSONDirectory("src/main" +
                 "/assets/structures");
@@ -60,10 +59,6 @@ public class Game {
 
     public Player getPlayer() {
         return player;
-    }
-
-    public Team getTeam() {
-        return team;
     }
 
     public UnitStore getUnitStore() {

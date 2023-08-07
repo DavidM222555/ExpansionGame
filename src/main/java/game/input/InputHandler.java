@@ -26,7 +26,8 @@ public class InputHandler {
         } else if (keyCode.equals(KeyCode.SPACE)) {
             this.gameView.takeTurn();
         } else {
-            BuyCommand.execute(keyCode, gameView.getGame());
+            BuyCommand.execute(keyCode, gameView.getGame(),
+                    gameView.getGame().getPlayer());
         }
     }
 
