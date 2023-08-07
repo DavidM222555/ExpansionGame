@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Start of reworking old noise generation into using JNoise.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -347,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691365087828</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme.">
+      <created>1691365553770</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1691365553770</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,7 +371,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Setup proper handling for blocks that don't allow unit movement and placement." />
     <MESSAGE value="Have basics of structure store setup." />
     <MESSAGE value="Setting up structure and unit buying interactions." />
     <MESSAGE value="Start of resource randomized placement." />
@@ -387,7 +395,8 @@
     <MESSAGE value="Colored units if they are in neutral territory and maintained their color in allied territory." />
     <MESSAGE value="Added JNoise as a dependency." />
     <MESSAGE value="Start of reworking old noise generation into using JNoise." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start of reworking old noise generation into using JNoise." />
+    <MESSAGE value="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

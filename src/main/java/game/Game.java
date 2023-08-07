@@ -1,7 +1,6 @@
 package game;
 
 import game.player.Player;
-import game.resources.ResourceType;
 import game.structures.StructureStore;
 import game.teams.Team;
 import game.units.UnitStore;
@@ -35,7 +34,7 @@ public class Game {
 
     public World buildWorld() {
         return new WorldBuilder(Size3D.create(GAME_CONSTANTS.GAME_X,
-                GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().setResourcesOnTiles(ResourceType.GOLD, 65).refreshContentOfAllTiles().build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
+                GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().initResources().refreshContentOfAllTiles().build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
 
     }
 

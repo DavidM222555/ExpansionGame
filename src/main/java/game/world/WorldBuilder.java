@@ -21,6 +21,13 @@ public class WorldBuilder {
     public final JNoise goldNoiseGenerator =
             JNoise.newBuilder().worley(WorleyNoiseGenerator.newBuilder().setSeed(200).build()).scale(1 / 16.0).clamp(0.0, 1.0).build();
 
+    public final JNoise ironNoiseGenerator =
+            JNoise.newBuilder().worley(WorleyNoiseGenerator.newBuilder().setSeed(2500).build()).scale(1 / 16.0).clamp(0.0, 1.0).build();
+
+
+    public final JNoise woodNoiseGenerator =
+            JNoise.newBuilder().worley(WorleyNoiseGenerator.newBuilder().setSeed(1500).build()).scale(1 / 16.0).clamp(0.0, 1.0).build();
+
 
     private final Size3D worldSize;
     private final Map<Position3D, GameBlock> blocks = new HashMap<>();
@@ -56,8 +63,7 @@ public class WorldBuilder {
     }
 
 
-    public WorldBuilder setResourcesOnTiles(ResourceType resourceType,
-                                            int freq) {
+    private WorldBuilder initGoldOnTiles() {
         var posIterator = worldSize.fetchPositions().iterator();
 
         while (posIterator.hasNext()) {
@@ -66,16 +72,61 @@ public class WorldBuilder {
                     goldNoiseGenerator.evaluateNoise(currentPos.getX() + 2.1,
                             currentPos.getY() + 2.1);
 
-            if (noiseValue >= 0.65) {
+            if (noiseValue >= 0.60) {
                 var currentBlock = blocks.get(currentPos);
 
                 SetResourceOnTileCommand.execute(currentBlock,
-                        ResourceStore.getResource(resourceType, 100));
+                        ResourceStore.getResource(ResourceType.GOLD, 100));
             }
         }
 
         return this;
     }
+
+    private WorldBuilder initIronOnTiles() {
+        var posIterator = worldSize.fetchPositions().iterator();
+
+        while (posIterator.hasNext()) {
+            var currentPos = posIterator.next();
+            var noiseValue =
+                    ironNoiseGenerator.evaluateNoise(currentPos.getX() + 10,
+                            currentPos.getY() + 10);
+
+            if (noiseValue >= 0.55) {
+                var currentBlock = blocks.get(currentPos);
+
+                SetResourceOnTileCommand.execute(currentBlock,
+                        ResourceStore.getResource(ResourceType.IRON, 100));
+            }
+        }
+
+        return this;
+    }
+
+    private WorldBuilder initWoodOnTiles() {
+        var posIterator = worldSize.fetchPositions().iterator();
+
+        while (posIterator.hasNext()) {
+            var currentPos = posIterator.next();
+            var noiseValue =
+                    woodNoiseGenerator.evaluateNoise(currentPos.getX() + 10,
+                            currentPos.getY() + 10);
+
+            if (noiseValue >= 0.55) {
+                var currentBlock = blocks.get(currentPos);
+
+                SetResourceOnTileCommand.execute(currentBlock,
+                        ResourceStore.getResource(ResourceType.WOOD, 100));
+            }
+        }
+
+        return this;
+    }
+
+    public WorldBuilder initResources() {
+        return this.initGoldOnTiles().initIronOnTiles().initWoodOnTiles();
+    }
+
 
     public WorldBuilder refreshContentOfAllTiles() {
         var posIterator = worldSize.fetchPositions().iterator();
