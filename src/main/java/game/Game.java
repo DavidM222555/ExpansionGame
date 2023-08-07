@@ -28,7 +28,6 @@ public class Game {
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
         this.structureStore = StructureStore.fromJSONDirectory("src/main" +
                 "/assets/structures");
-
     }
 
     public World buildWorld() {

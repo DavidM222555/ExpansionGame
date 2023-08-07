@@ -151,7 +151,6 @@ public class Unit {
         return this.team.getTeamColor();
     }
 
-
     public Unit copy() {
         return new Unit(this.currentHealth, this.pos, this.blockUnitIsOn,
                 this.key, this.name, this.maxHealth, this.attack,

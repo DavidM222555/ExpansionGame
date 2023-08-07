@@ -1,6 +1,7 @@
 package game.units;
 
 import game.Game;
+import game.units.movement.MovementHelper;
 import game.world.block.GameBlock;
 
 import java.util.Optional;

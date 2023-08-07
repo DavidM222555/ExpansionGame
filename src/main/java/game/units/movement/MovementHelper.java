@@ -1,6 +1,7 @@
-package game.units;
+package game.units.movement;
 
 import game.Game;
+import game.units.Unit;
 import game.world.block.GameBlock;
 import org.hexworks.zircon.api.data.Position;
 import org.jetbrains.annotations.Contract;
@@ -14,7 +15,6 @@ public class MovementHelper {
     static Position[] moveIncrements = {Position.create(1, 0),
             Position.create(-1, 0), Position.create(0, 1), Position.create(0,
             -1)};
-
 
     @NotNull
     @Contract(pure = true)
@@ -34,6 +34,10 @@ public class MovementHelper {
                 }
             }
         }
+
+        // We assume (probably rightfully so and forever) that the tile the
+        // unit is currently on it a legal move.
+        validMoves.add(unit.getBlockUnitIsOn());
 
         return validMoves;
     }
