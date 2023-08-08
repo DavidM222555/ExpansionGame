@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Restructured the various commands to be player agnostic.">
+    <list default="true" id="8eb29ab8-0e28-4aa7-9564-99e1c6453a68" name="Changes" comment="Starting to refine movement and creating a package to handle it.">
+      <change afterPath="$PROJECT_DIR$/src/main/assets/players/players.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/player/PlayerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GAME_CONSTANTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GAME_CONSTANTS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/MovementHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/movement/MovementHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/RandomMovementStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/RandomMovementStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/units/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/world/WorldBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691367813781</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Starting to refine movement and creating a package to handle it.">
+      <created>1691368961569</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1691368961569</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start of resource randomized placement." />
     <MESSAGE value="Fixed bug where selecting a tile would remove modifiers already on it." />
     <MESSAGE value="Set up callbacks for handling selection of unit store and structure store." />
     <MESSAGE value="Switched main loop from a free-form player based action system to being turn based." />
@@ -412,7 +419,8 @@
     <MESSAGE value="Removed unused height and width variables from WorldBuilder. Made unnecessary by the switch to a new noise generation scheme." />
     <MESSAGE value="Set up noise generation for each of the three resources." />
     <MESSAGE value="Restructured the various commands to be player agnostic." />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructured the various commands to be player agnostic." />
+    <MESSAGE value="Starting to refine movement and creating a package to handle it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting to refine movement and creating a package to handle it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

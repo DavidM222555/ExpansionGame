@@ -30,8 +30,8 @@ public class GAME_CONSTANTS {
     public final static int GAME_AREA_HEIGHT = 35;
     public final static int MAIN_AREA_HEIGHT =
             LOG_AREA_HEIGHT + GAME_AREA_HEIGHT;
-    public final static int GAME_X = 700;
-    public final static int GAME_Y = 250;
+    public final static int GAME_X = 1200;
+    public final static int GAME_Y = 300;
     public final static int GAME_Z = 1;
     public final static int VISIBLE_GAME_Y = GAME_AREA_HEIGHT;
 

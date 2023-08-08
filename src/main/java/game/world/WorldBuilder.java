@@ -127,7 +127,6 @@ public class WorldBuilder {
         return this.initGoldOnTiles().initIronOnTiles().initWoodOnTiles();
     }
 
-
     public WorldBuilder refreshContentOfAllTiles() {
         var posIterator = worldSize.fetchPositions().iterator();
 

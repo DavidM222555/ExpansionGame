@@ -1,0 +1,8 @@
+Green,#92CC4E
+Blue,#3EC7BC
+Purple,#7035D7
+Salmon,#FFB89C
+Pink,#E328B2
+Dark_Green,#6AA506
+Light_Orange,#FDB669
+Turquoise,##40E0D0
