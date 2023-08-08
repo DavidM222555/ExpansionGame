@@ -38,7 +38,8 @@ public class BuyUnitCommand {
     }
 
     private static boolean checkConditionsAndHandleLogging(GameBlock selectedGameBlock, Player player, Unit unit) {
-        return BuyUnitCommand.checkUnitCost(unit, player) && BuyUnitCommand.checkBlockIsEmpty(selectedGameBlock) && checkIsPlayerControlled(selectedGameBlock, player) && checkIsPlayerMovable(selectedGameBlock);
+        return selectedGameBlock != null && BuyUnitCommand.checkUnitCost(unit
+                , player) && BuyUnitCommand.checkBlockIsEmpty(selectedGameBlock) && checkIsPlayerControlled(selectedGameBlock, player) && checkIsPlayerMovable(selectedGameBlock);
     }
 
     private static boolean checkUnitCost(Unit unit, Player player) {
