@@ -1,5 +1,6 @@
 package game;
 
+import game.player.InitializePlayerStartingAreaCommand;
 import game.player.Player;
 import game.structures.StructureStore;
 import game.teams.Team;
@@ -24,16 +25,18 @@ public class Game {
     public Game() throws IOException {
         this.world = buildWorld();
         this.controlledPlayer = new Player(new Team("Red team",
-                TileColor.fromString("#B92743")));
+                TileColor.fromString("#43AF2E")));
         this.unitStore = UnitStore.fromJSONDirectory("src/main/assets/units");
         this.structureStore = StructureStore.fromJSONDirectory("src/main" +
                 "/assets/structures");
+
+        InitializePlayerStartingAreaCommand.execute(this, controlledPlayer,
+                Position.create(30, 30));
     }
 
     public World buildWorld() {
         return new WorldBuilder(Size3D.create(GAME_CONSTANTS.GAME_X,
                 GAME_CONSTANTS.GAME_Y, GAME_CONSTANTS.GAME_Z)).setInitialTiles().initResources().refreshContentOfAllTiles().build(Size3D.create(GAME_CONSTANTS.VISIBLE_GAME_X, GAME_CONSTANTS.VISIBLE_GAME_Y, GAME_CONSTANTS.VISIBLE_GAME_Z));
-
     }
 
     public void tick() {
